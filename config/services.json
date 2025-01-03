@@ -1,0 +1,1412 @@
+[
+    {
+        "name": "AJRouter",
+        "start": 4,
+        "default": 3
+    },
+    {
+        "name": "ALG",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "AppIDSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "AppMgmt",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "AppReadiness",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "AppVClient",
+        "start": 4,
+        "default": 4
+    },
+    {
+        "name": "AppXSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "Appinfo",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "AssignedAccessManagerSvc",
+        "start": 4,
+        "default": 3
+    },
+    {
+        "name": "AudioEndpointBuilder",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "AudioSrv",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "Audiosrv",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "AxInstSV",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "BDESVC",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "BFE",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "BITS",
+        "start": 5,
+        "default": 2
+    },
+    {
+        "name": "BTAGService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "BcastDVRUserService_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "BluetoothUserService_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "BrokerInfrastructure",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "Browser",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "BthAvctpSvc",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "BthHFSrv",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "CDPSvc",
+        "start": 3,
+        "default": 2
+    },
+    {
+        "name": "CDPUserSvc_*",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "COMSysApp",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "CaptureService_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "CertPropSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "ClipSVC",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "ConsentUxUserSvc_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "CoreMessagingRegistrar",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "CredentialEnrollmentManagerUserSvc_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "CryptSvc",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "CscService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "DPS",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "DcomLaunch",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "DcpSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "DevQueryBroker",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "DeviceAssociationBrokerSvc_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "DeviceAssociationService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "DeviceInstall",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "DevicePickerUserSvc_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "DevicesFlowUserSvc_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "Dhcp",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "DiagTrack",
+        "start": 4,
+        "default": 2
+    },
+    {
+        "name": "DialogBlockingService",
+        "start": 4,
+        "default": 4
+    },
+    {
+        "name": "DispBrokerDesktopSvc",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "DisplayEnhancementService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "DmEnrollmentSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "Dnscache",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "DoSvc",
+        "start": 5,
+        "default": 2
+    },
+    {
+        "name": "DsSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "DsmSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "DusmSvc",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "EFS",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "EapHost",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "EntAppSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "EventLog",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "EventSystem",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "FDResPub",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "Fax",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "FontCache",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "FrameServer",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "FrameServerMonitor",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "GraphicsPerfSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "HomeGroupListener",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "HomeGroupProvider",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "HvHost",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "IEEtwCollectorService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "IKEEXT",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "InstallService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "InventorySvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "IpxlatCfgSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "KeyIso",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "KtmRm",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "LSM",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "LanmanServer",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "LanmanWorkstation",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "LicenseManager",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "LxpSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "MSDTC",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "MSiSCSI",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "MapsBroker",
+        "start": 5,
+        "default": 2
+    },
+    {
+        "name": "McpManagementService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "MessagingService_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "MicrosoftEdgeElevationService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "MixedRealityOpenXRSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "MpsSvc",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "MsKeyboardFilter",
+        "start": 3,
+        "default": 4
+    },
+    {
+        "name": "NPSMSvc_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "NaturalAuthentication",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "NcaSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "NcbService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "NcdAutoSetup",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "NetSetupSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "NetTcpPortSharing",
+        "start": 4,
+        "default": 4
+    },
+    {
+        "name": "Netlogon",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "Netman",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "NgcCtnrSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "NgcSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "NlaSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "OneSyncSvc_*",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "P9RdrService_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "PNRPAutoReg",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "PNRPsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "PcaSvc",
+        "start": 3,
+        "default": 2
+    },
+    {
+        "name": "PeerDistSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "PenService_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "PerfHost",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "PhoneSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "PimIndexMaintenanceSvc_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "PlugPlay",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "PolicyAgent",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "Power",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "PrintNotify",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "PrintWorkflowUserSvc_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "ProfSvc",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "PushToInstall",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "QWAVE",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "RasAuto",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "RasMan",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "RemoteAccess",
+        "start": 4,
+        "default": 4
+    },
+    {
+        "name": "RemoteRegistry",
+        "start": 4,
+        "default": 4
+    },
+    {
+        "name": "RetailDemo",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "RmSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "RpcEptMapper",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "RpcLocator",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "RpcSs",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "SCPolicySvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "SCardSvr",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "SDRSVC",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "SEMgrSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "SENS",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "SNMPTRAP",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "SNMPTrap",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "SSDPSRV",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "SamSs",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "ScDeviceEnum",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "Schedule",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "SecurityHealthService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "Sense",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "SensorDataService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "SensorService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "SensrSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "SessionEnv",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "SgrmBroker",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "SharedAccess",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "SharedRealitySvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "ShellHWDetection",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "SmsRouter",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "Spooler",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "SstpSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "StateRepository",
+        "start": 3,
+        "default": 2
+    },
+    {
+        "name": "StiSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "StorSvc",
+        "start": 3,
+        "default": 2
+    },
+    {
+        "name": "SysMain",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "SystemEventsBroker",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "TabletInputService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "TapiSrv",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "TermService",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "TextInputManagementService",
+        "start": 3,
+        "default": 2
+    },
+    {
+        "name": "Themes",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "TieringEngineService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "TimeBroker",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "TimeBrokerSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "TokenBroker",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "TrkWks",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "TroubleshootingSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "TrustedInstaller",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "UI0Detect",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "UdkUserSvc_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "UevAgentService",
+        "start": 4,
+        "default": 4
+    },
+    {
+        "name": "UmRdpService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "UnistoreSvc_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "UserDataSvc_*",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "UserManager",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "UsoSvc",
+        "start": 3,
+        "default": 2
+    },
+    {
+        "name": "VGAuthService",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "VMTools",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "VSS",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "VacSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "VaultSvc",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "W32Time",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WEPHOSTSVC",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WFDSConMgrSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WMPNetworkSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WManSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WPDBusEnum",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WSService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WSearch",
+        "start": 5,
+        "default": 2
+    },
+    {
+        "name": "WaaSMedicSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WalletService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WarpJITSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WbioSrvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "Wcmsvc",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "WcsPlugInService",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WdNisSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WdiServiceHost",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WdiSystemHost",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WebClient",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "Wecsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WerSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WiaRpc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WinDefend",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "WinHttpAutoProxySvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WinRM",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "Winmgmt",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "WlanSvc",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "WpcMonSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "WpnService",
+        "start": 3,
+        "default": 2
+    },
+    {
+        "name": "WpnUserService_*",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "XblAuthManager",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "XblGameSave",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "XboxGipSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "XboxNetApiSvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "autotimesvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "bthserv",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "camsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "cbdhsvc_*",
+        "start": 3,
+        "default": 2
+    },
+    {
+        "name": "cloudidsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "dcsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "defragsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "diagnosticshub.standardcollector.service",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "diagsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "dmwappushservice",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "dot3svc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "edgeupdate",
+        "start": 3,
+        "default": 2
+    },
+    {
+        "name": "edgeupdatem",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "embeddedmode",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "fdPHost",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "fhsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "gpsvc",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "hidserv",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "icssvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "iphlpsvc",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "lfsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "lltdsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "lmhosts",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "mpssvc",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "msiserver",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "netprofm",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "nsi",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "p2pimsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "p2psvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "perceptionsimulation",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "pla",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "seclogon",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "shpamsvc",
+        "start": 4,
+        "default": 4
+    },
+    {
+        "name": "smphost",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "spectrum",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "sppsvc",
+        "start": 5,
+        "default": 2
+    },
+    {
+        "name": "ssh-agent",
+        "start": 4,
+        "default": 4
+    },
+    {
+        "name": "svsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "swprv",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "tiledatamodelsvc",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "tzautoupdate",
+        "start": 4,
+        "default": 4
+    },
+    {
+        "name": "uhssvc",
+        "start": 4,
+        "default": 4
+    },
+    {
+        "name": "upnphost",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "vds",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "vm3dservice",
+        "start": 3,
+        "default": 2
+    },
+    {
+        "name": "vmicguestinterface",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "vmicheartbeat",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "vmickvpexchange",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "vmicrdv",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "vmicshutdown",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "vmictimesync",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "vmicvmsession",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "vmicvss",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "vmvss",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "wbengine",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "wcncsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "webthreatdefsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "webthreatdefusersvc_*",
+        "start": 2,
+        "default": 2
+    },
+    {
+        "name": "wercplsupport",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "wisvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "wlidsvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "wlpasvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "wmiApSrv",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "workfolderssvc",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "wscsvc",
+        "start": 5,
+        "default": 2
+    },
+    {
+        "name": "wuauserv",
+        "start": 3,
+        "default": 3
+    },
+    {
+        "name": "wudfsvc",
+        "start": 3,
+        "default": 3
+    }
+]

@@ -1,0 +1,54 @@
+[
+    {
+        "name": "Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Application Experience\\ProgramDataUpdater",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Autochk\\Proxy",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Feedback\\Siuf\\DmClient",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Feedback\\Siuf\\DmClientOnScenarioDownload",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Windows Error Reporting\\QueueReporting",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Application Experience\\MareBackup",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Application Experience\\StartupAppTask",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Application Experience\\PcaPatchDbTask",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Maps\\MapsUpdateTask",
+        "active": false
+    }
+]
