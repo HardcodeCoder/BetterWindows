@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Microsoft\\Windows\\ExploitGuard\\ExploitGuard MDM policy Refresh",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Windows Defender\\Windows Defender Cache Maintenance",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Windows Defender\\Windows Defender Cleanup",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Windows Defender\\Windows Defender Scheduled Scan",
+        "active": false
+    },
+    {
+        "name": "Microsoft\\Windows\\Windows Defender\\Windows Defender Verification",
+        "active": false
+    }
+]

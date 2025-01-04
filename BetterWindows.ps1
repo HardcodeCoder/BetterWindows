@@ -54,11 +54,12 @@ function Show-MainMenu {
 
     Write-CenteredText "Tweaks and optimizations                         Software and packages                    "
     Write-CenteredText "------------------------                         ---------------------                    "
-    Write-CenteredText "[1] Apply ALL tweaks (2-5)                       [a] Install Graphics Driver              "
+    Write-CenteredText "[1] Apply ALL tweaks (2-6)                       [a] Install Graphics Driver              "
     Write-CenteredText "[2] Apply only REGISTRY tweaks                   [b] Install Chromium browser             "
     Write-CenteredText "[3] Apply only SERVIICE tweaks                   [c] Install Windows Terminal app         "
     Write-CenteredText "[4] Apply only SCHEDULED TASK tweaks                                                      "
     Write-CenteredText "[5] Perform System cleanup                                                                "
+    Write-CenteredText "[6] Disable Windows Defender                                                              "
     Write-Host ""
 }
 
@@ -195,6 +196,8 @@ function Invoke-AllTweaks {
         Invoke-TaskTweak -Config $TaskConfig
 
         Invoke-SystemCleaner
+
+        Disable-WindowsDefender
     }
     catch {
         Write-UnhandledException -Description "Failed to apply all tweaks" -Exception $_.Exception
@@ -320,6 +323,19 @@ function Invoke-SystemCleaner {
     Write-Host ""
 }
 
+# Disable Windows Defender
+function Disable-WindowsDefender {
+    Write-TaskHeader "Disable Windows Defender"
+
+    Invoke-RegistryTweak -Config $(Join-Path -Path $PSScriptRoot -ChildPath "config\defender\tweaks.reg")
+    Invoke-ServiceTweak -Config $(Join-Path -Path $PSScriptRoot -ChildPath "config\defender\services.json")
+    Invoke-TaskTweak -Config $(Join-Path -Path $PSScriptRoot -ChildPath "config\defender\tasks.json")
+
+    Write-Host "Successfully disabled Windows Defender"
+    Write-Host "Reboot system for changes to take effect"
+    Write-Host ""
+}
+
 # Install Intel Graphics driver
 function Install-GraphicsDriver {
     Write-TaskHeader "Download and install Intel Graphics Driver"
@@ -428,6 +444,7 @@ while ($choice -ne 'q') {
         "3" { Invoke-ServiceTweak -Config $ServiceConfigFile }
         "4" { Invoke-TaskTweak -Config $TaskConfigFile }
         "5" { Invoke-SystemCleaner }
+        "6" { Disable-WindowsDefender }
         "a" { Install-GraphicsDriver }
         "b" { Install-Chromium }
         "c" { Install-WindowsTerminal }

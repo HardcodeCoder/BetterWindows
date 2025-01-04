@@ -1,0 +1,80 @@
+Windows Registry Editor Version 5.00
+
+; ============================================================================
+; Registry tweaks to disable Windows Defender or atleast makes it passive. 
+; This file is intended for and tested on Windows 11 Iot Enterprise LTSC.
+;
+; Author: Ashuthosh Patoa
+; Date Created:  04 Jan 2025
+; Last Modified: 04 Jan 2025
+; 
+; ============================================================================
+
+; ----------------------------------------------------------------------------
+;                               WINDOWS DEFENDER
+; ----------------------------------------------------------------------------
+
+; Remove context menu
+[-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\EPP]
+[-HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers\EPP]
+[-HKEY_CLASSES_ROOT\Drive\shellex\ContextMenuHandlers\EPP]
+
+; Disable systray icon
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run]
+"SecurityHealth"=-
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run]
+"SecurityHealth"=-
+
+; Disable "Antivirus Disabled" notifications
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender Security Center\Notifications]
+"DisableNotifications"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender Security Center\Notifications]
+"DisableEnhancedNotifications"=dword:00000001
+
+; Disable Security and Maintenance Notification
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.SecurityAndMaintenance]
+"Enabled"=dword:00000000
+
+; Disable Real-time protection
+[-HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender]
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender]
+"AllowFastServiceStartup"=dword:00000000
+"DisableAntiSpyware"=dword:00000001
+"DisableAntiVirus"=dword:00000001
+"DisableSpecialRunningModes"=dword:00000001
+"ServiceKeepAlive"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\MpEngine]
+"MpEnablePus"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\Real-Time Protection]
+"DisableBehaviorMonitoring"=dword:00000001
+"DisableIOAVProtection"=dword:00000001
+"DisableOnAccessProtection"=dword:00000001
+"DisableRealtimeMonitoring"=dword:00000001
+"DisableRoutinelyTakingAction"=dword:00000001
+"DisableScanOnRealtimeEnable"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\Reporting]
+"DisableEnhancedNotifications"=dword:00000001
+
+; Disable Microsoft Spynet membership
+; Disable reporting of malware infection information
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows Defender\SpyNet]
+"DisableBlockAtFirstSeen"=dword:00000001
+"SpynetReporting"=dword:00000000
+"SubmitSamplesConsent"=dword:00000002
+
+; Disable Logging
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\WMI\Autologger\DefenderApiLogger]
+"Start"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\WMI\Autologger\DefenderAuditLogger]
+"Start"=dword:00000000
+
+; Disable reporting of malware infection information
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MRT]
+"DontReportInfectionInformation"=dword:00000001

@@ -1,0 +1,27 @@
+[
+    {
+        "name": "MDCoreSvc",
+        "start": 4,
+        "default": 2
+    },
+    {
+        "name": "WdFilter",
+        "start": 4,
+        "default": 0
+    },
+    {
+        "name": "WdNisDrv",
+        "start": 4,
+        "default": 3
+    },
+    {
+        "name": "WdNisSvc",
+        "start": 4,
+        "default": 3
+    },
+    {
+        "name": "WinDefend",
+        "start": 4,
+        "default": 2
+    }
+]
