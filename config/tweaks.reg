@@ -6,7 +6,7 @@ Windows Registry Editor Version 5.00
 ;
 ; Author: Ashuthosh Patoa
 ; Date Created:  03 Jan 2025
-; Last Modified: 03 Jan 2025
+; Last Modified: 04 Jan 2025
 ; 
 ; ============================================================================
 
@@ -81,7 +81,7 @@ Windows Registry Editor Version 5.00
 ; Disables Consumer Account State Content
 ; Disables Cloud Optimized Content
 [HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\CloudContent]
-"DisableWindowsConsumerFeatures"=dword:00000000
+"DisableWindowsConsumerFeatures"=dword:00000001
 "DisableConsumerAccountStateContent"=dword:00000001
 "DisableCloudOptimizedContent"=dword:00000001
 
@@ -100,9 +100,6 @@ Windows Registry Editor Version 5.00
 "PreInstalledAppsEverEnabled"=dword:00000000
 "SilentInstalledAppsEnabled"=dword:00000000
 "SystemPaneSuggestionsEnabled"=dword:00000000
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules]
-"NumberOfSIUFInPeriod"=dword:00000000
 
 [HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\CloudContent]
 "DisableTailoredExperiencesWithDiagnosticData"=dword:00000001
@@ -282,18 +279,11 @@ Windows Registry Editor Version 5.00
 "SystemResponsiveness"=dword:00000000
 "NetworkThrottlingIndex"=dword:ffffffff
 
-[HKEY_CURRENT_USER\Control Panel\Desktop]
-"MenuShowDelay"=dword:00000001
-"AutoEndTasks"=dword:00000001
-
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management]
 "ClearPageFileAtShutdown"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Ndu]
 "Start"=dword:00000002
-
-[HKEY_CURRENT_USER\Control Panel\Mouse]
-"MouseHoverTime"="400"
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters]
 "IRPStackSize"=dword:0000001e
@@ -343,11 +333,11 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications]
 "GlobalUserDisabled"=dword:00000001
 
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search]
-"BackgroundAppGlobalToggle"=dword:00000000
-
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications]
 "GlobalUserDisabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search]
+"BackgroundAppGlobalToggle"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Search]
 "BackgroundAppGlobalToggle"=dword:00000000
@@ -386,22 +376,28 @@ Windows Registry Editor Version 5.00
 "AUOptions"=dword:00000002
 "AutoInstallMinorUpdates"=dword:00000000
 "NoAutoRebootWithLoggedOnUsers"=dword:00000001
+"AUPowerManagement"=dword:00000000
 
 ; Defer updates and disable optional contents
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"SetAllowOptionalContent"=dword:00000000
-"DeferUpgrade"=dword:00000001
-"DeferUpgradePeriod"=dword:00000008
-"DeferUpdatePeriod"=dword:00000004
+"AllowOptionalContent"=dword:00000000
+"DeferFeatureUpdatesPeriodInDays"=dword:00000365
+"DeferQualityUpdatesPeriodInDays"=dword:00000035
 
 ; Disable Windows Dynamic configuration and update rollouts
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\System]
 "AllowExperimentation"=dword:00000000
 
-; Disable automatic driver updates through Windows Update
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"ExcludeWUDriversInQualityUpdate"=dword:00000001
+; Disable driver offering through Windows Update
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Device Metadata]
+"PreventDeviceMetadataFromNetwork"=dword:00000001
 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DriverSearching]
+"DontPromptForWindowsUpdate"=dword:00000001
+"DontSearchWindowsUpdate"=dword:00000001
+"DriverUpdateWizardWuSearchEnabled"=dword:00000000
+
+; Disable automatic driver updates through Windows Update
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
 "ExcludeWUDriversInQualityUpdate"=dword:00000001
 

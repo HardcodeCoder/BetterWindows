@@ -15,7 +15,7 @@
 .NOTES
     Author: Ashuthosh Patoa
     Created: 03 Jan 2025
-    Last Modified: 03 Jan 2025
+    Last Modified: 04 Jan 2025
     Version: 1.0.0
     Required Modules: PowerShell Remoting
 
@@ -36,7 +36,7 @@ $WorkingDir = Join-Path -Path $env:TEMP -ChildPath "BetterWindows"
 # Show Better Windows main menu
 function Show-MainMenu {
     Clear-Host
-	
+
     Write-CenteredText " ____       _   _             __        __            _                   " -ForegroundColor Green
     Write-CenteredText "| __ )  ___| |_| |_ ___ _ _   \ \      / (_)_ __   __| | _____      _____ " -ForegroundColor Green
     Write-CenteredText "|  _ \ / _ \ __| __/ _ \  __\  \ \ /\ / /| |  _  \/ _  |/ _ \ \ /\ / / __/" -ForegroundColor Green
@@ -51,7 +51,7 @@ function Show-MainMenu {
     Write-CenteredText "Select one of the options below" -ForegroundColor Cyan
     Write-CenteredText "========================================================" -ForegroundColor Cyan
     Write-Host ""
-	
+
     Write-CenteredText "Tweaks and optimizations                         Software and packages                    "
     Write-CenteredText "------------------------                         ---------------------                    "
     Write-CenteredText "[1] Apply ALL tweaks (2-5)                       [a] Install Graphics Driver              "
@@ -90,7 +90,7 @@ function Write-TaskHeader {
     param (
         [string]$TaskName
     )
-	
+
     $decorator = '-' * 62
     $text = ' ' * ((62 - $TaskName.Length) / 2) + $TaskName
     Write-Host $decorator
@@ -102,8 +102,6 @@ function Write-TaskHeader {
 # Write task footer divider
 function Write-TaskFooter {
     $decorator = '-' * 62
-
-    Write-Host ""
     Write-Host $decorator
     Write-Host ""
 }
@@ -114,7 +112,7 @@ function Write-UnhandledException {
         [string]$Description,
         [System.Exception]$Exception
     )
-	
+
     Write-Warning "$Description - $($Exception.Message)"
     Write-Warning $Exception.StackTrace
 }
@@ -124,7 +122,7 @@ function ConvertFrom-JsonFie {
     param (
         [string]$Path
     )
-	
+
     if ($Path -eq '' -Or !(Test-Path -Path $Path)) {
         Write-Host "File not found: $Path" -ForegroundColor Red
         return $null
@@ -140,7 +138,7 @@ function Invoke-FileDownload {
         [string]$Uri,
         [string]$OutFile
     )
-	
+
     try {
         $directory = Split-Path -Path $OutFile -Parent
 
@@ -168,7 +166,7 @@ function Invoke-AllTweaks {
     Write-TaskHeader "Making your Windows Better"
 
     try {
-        Write-Host "Disabling hibernate"
+        Write-Host "Disabling hibernation"
         powercfg.exe /hibernate off
 
         Write-Host "Setting legacy boot menu policy"
@@ -191,19 +189,18 @@ function Invoke-AllTweaks {
         Write-Host ""
 
         Invoke-RegistryTweak -Config $RegistryConfig
-        Write-Host ""
-		
+
         Invoke-ServiceTweak -Config $ServiceConfig
-        Write-Host ""
-		
+
         Invoke-TaskTweak -Config $TaskConfig
-        Write-Host ""
 
         Invoke-SystemCleaner
     }
     catch {
         Write-UnhandledException -Description "Failed to apply all tweaks" -Exception $_.Exception
     }
+
+    Write-Host ""
 }
 
 # Apply registry settings from config file
@@ -211,11 +208,13 @@ function Invoke-RegistryTweak {
     param (
         [string]$Config
     )
-    Write-TaskHeader "Invoke Registry Tweaks"
 
-    Write-Host "Importing registry tweaks from $Config"
+    Write-Host "Applying registry tweaks from: $Config" -ForegroundColor Cyan
+
     Start-Process regedit.exe -ArgumentList "/S $Config" -Wait
     Write-Host "Success"
+
+    Write-Host ""
 }
 
 # Configure services to recommended startup type
@@ -224,7 +223,7 @@ function Invoke-ServiceTweak {
         [string]$Config
     )
 
-    Write-TaskHeader "Invoke service settings"
+    Write-Host "Applying service configurations from: $Config" -ForegroundColor Cyan
 
     try {
         $serviceConfigs = ConvertFrom-JsonFie -Path $Config
@@ -261,6 +260,8 @@ function Invoke-ServiceTweak {
     catch {
         Write-UnhandledException -Description "Failed to set services" -Exception $_.Exception
     }
+
+    Write-Host ""
 }
 
 # Configure schedule taks to recommended settiings
@@ -269,8 +270,8 @@ function Invoke-TaskTweak {
         [string]$Config
     )
 
-    Write-TaskHeader "Invoke schedule task settings"
-	
+    Write-Host "Applying schedule task configurations from: $Config" -ForegroundColor Cyan
+
     try {
         $tasks = ConvertFrom-JsonFie -Path $Config
 
@@ -278,7 +279,7 @@ function Invoke-TaskTweak {
             Write-Warning "No schedule task found in: $Config"
             return
         }
-	
+
         foreach ($task in $tasks) {
             Write-Host "Set: $($task.Name), Active = $($task.Active)"
 
@@ -293,6 +294,8 @@ function Invoke-TaskTweak {
     catch {
         Write-UnhandledException -Description "Failed to set schedule task" -Exception $_.Exception
     }
+
+    Write-Host ""
 }
 
 # Perform sytem cleanup
@@ -313,6 +316,8 @@ function Invoke-SystemCleaner {
     catch {
         Write-UnhandledException -Description "Failed to complete system cleanup" -Exception $_.Exception
     }
+
+    Write-Host ""
 }
 
 # Install Intel Graphics driver
@@ -322,7 +327,7 @@ function Install-GraphicsDriver {
     try {
         $installerFile = Join-Path -Path $WorkingDir -ChildPath "win64_15.33.53.5161.exe"
         Invoke-FileDownload -Uri "https://downloadmirror.intel.com/29969/a08/win64_15.33.53.5161.exe" -OutFile $installerFile
-		
+
         Write-Host "Installing..."
         Start-Process -FilePath $installerFile -ArgumentList "-s" -Wait
         Write-Host "Successfully installed graphics driver"
@@ -330,12 +335,14 @@ function Install-GraphicsDriver {
     catch {
         Write-UnhandledException -Description "Failed to install graphics driver" -Exception $_.Exception
     }
+
+    Write-Host ""
 }
 
 # Install Chromium browser
 function Install-Chromium {
     Write-TaskHeader "Download and install Chromium"
-	
+
     try {
         $installer = Join-Path -Path $WorkingDir -ChildPath "mini_installer.sync.exe"
         Invoke-FileDownload -Uri "https://github.com/Hibbiki/chromium-win64/releases/latest/download/mini_installer.sync.exe" -OutFile $installer
@@ -347,6 +354,8 @@ function Install-Chromium {
     catch {
         Write-UnhandledException -Description "Failed to install Chromium" -Exception $_.Exception
     }
+
+    Write-Host ""
 }
 
 # Installl windows terminal
@@ -367,7 +376,7 @@ function Install-WindowsTerminal {
 
             Write-Host "Asset found: $($asset.Name), Size = $($asset.Size)"
             Invoke-FileDownload -Uri $asset.Browser_Download_Url -OutFile $installer
-			
+
             Write-Host "Installing..."
             Add-AppxPackage -Path $installer
 
@@ -377,6 +386,8 @@ function Install-WindowsTerminal {
     catch {
         Write-UnhandledException -Description "Failed to install Windows Terminal" -Exception $_.Exception
     }
+
+    Write-Host ""
 }
 
 # Cleanup working directory
