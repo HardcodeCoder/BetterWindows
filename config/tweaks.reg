@@ -6,7 +6,7 @@ Windows Registry Editor Version 5.00
 ;
 ; Author: Ashuthosh Patoa
 ; Date Created:  03 Jan 2025
-; Last Modified: 04 Jan 2025
+; Last Modified: 05 Jan 2025
 ; 
 ; ============================================================================
 
@@ -273,7 +273,7 @@ Windows Registry Editor Version 5.00
 "LongPathsEnabled"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching]
-"SearchOrderConfig"=dword:00000001
+"SearchOrderConfig"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
 "SystemResponsiveness"=dword:00000000
