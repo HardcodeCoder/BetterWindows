@@ -15,7 +15,7 @@
 .NOTES
     Author: Ashuthosh Patoa
     Created: 03 Jan 2025
-    Last Modified: 04 Jan 2025
+    Last Modified: 05 Jan 2025
     Version: 1.0.0
     Required Modules: PowerShell Remoting
 
@@ -195,9 +195,9 @@ function Invoke-AllTweaks {
 
         Invoke-TaskTweak -Config $TaskConfig
 
-        Invoke-SystemCleaner
-
         Disable-WindowsDefender
+
+        Invoke-SystemCleaner
     }
     catch {
         Write-UnhandledException -Description "Failed to apply all tweaks" -Exception $_.Exception
