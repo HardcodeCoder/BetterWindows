@@ -15,7 +15,7 @@
 .NOTES
     Author: Ashuthosh Patoa
     Created: 03 Jan 2025
-    Last Modified: 05 Jan 2025
+    Last Modified: 06 Jan 2025
     Version: 1.0.0
     Required Modules: PowerShell Remoting
 
@@ -57,7 +57,7 @@ function Show-MainMenu {
     Write-CenteredText "[1] Apply ALL tweaks (2-6)                       [a] Install Graphics Driver              "
     Write-CenteredText "[2] Apply only REGISTRY tweaks                   [b] Install Chromium browser             "
     Write-CenteredText "[3] Apply only SERVIICE tweaks                   [c] Install Windows Terminal app         "
-    Write-CenteredText "[4] Apply only SCHEDULED TASK tweaks                                                      "
+    Write-CenteredText "[4] Apply only SCHEDULED TASK tweaks             [d] Install Office (Pro Plus 2024)       "
     Write-CenteredText "[5] Perform System cleanup                                                                "
     Write-CenteredText "[6] Disable Windows Defender                                                              "
     Write-Host ""
@@ -406,6 +406,30 @@ function Install-WindowsTerminal {
     Write-Host ""
 }
 
+# Install Office Professional Plus 2024
+function Install-Office {
+    param (
+        [string]$Config
+    )
+
+    Write-TaskHeader "Install Office Pro Plus 2024"
+
+    try {
+        Write-Host "Downloading setup files"
+        $setupFile = Join-Path -Path $WorkingDir -ChildPath "setup.exe"
+        Invoke-FileDownload -Uri "https://officecdn.microsoft.com/pr/wsus/setup.exe" -OutFile $setupFile
+
+        Write-Host "Installing using configuration: $Config"
+        Start-Process -FilePath $setupFile -ArgumentList "/configure $Config" -Wait
+        Write-Host "Successfully installed office"
+    }
+    catch {
+        Write-UnhandledException -Description "Office installation faied" -Exception $_.Exception
+    }
+
+    Write-Host ""
+}
+
 # Cleanup working directory
 function Remove-WorkingDir {
     if (Test-Path -Path $WorkingDir) {
@@ -448,6 +472,7 @@ while ($choice -ne 'q') {
         "a" { Install-GraphicsDriver }
         "b" { Install-Chromium }
         "c" { Install-WindowsTerminal }
+        "d" { Install-Office -Config $(Join-Path -Path $PSScriptRoot -ChildPath "config\office\Configuration.xml") }
         "q" { break menu }
         Default {
             $choice = "0"
