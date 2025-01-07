@@ -4,13 +4,13 @@
 
 .DESCRIPTION
     Better Windows aims to tweak certain windows settings and components to enhance privacy
-	and optimize unnecessary background services and tasks.
-	This script is intended to run on Windows 11 Iot Enterprise LTSC or equivalent editions
-	that has minimal bloatare as it currently DOES NOT debloats like some other utilities do.
+    and optimize unnecessary background services and tasks.
+    This script is intended to run on Windows 11 Iot Enterprise LTSC or equivalent editions
+    that has minimal bloatare as it currently DOES NOT debloats like some other utilities do.
 	
 .EXAMPLE
     Run this script in powershell by simply executing it "BetterWiindows.ps1" or,
-	Right click on the script and select "Run in powershell"
+    Right click on the script and select "Run in powershell"
 
 .NOTES
     Author: Ashuthosh Patoa
