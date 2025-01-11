@@ -14,6 +14,7 @@ A comprehensive set of tweaks to make Windows Better. It applies registry tweaks
 - Install Chromium browser
 - Install Windows Terminal app
 - Install Office (Pro Plus 2024)
+- Install Winget
 
 ## Usage
 - Download or clone the repo

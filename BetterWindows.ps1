@@ -15,7 +15,7 @@
 .NOTES
     Author: Ashuthosh Patoa
     Created: 03 Jan 2025
-    Last Modified: 06 Jan 2025
+    Last Modified: 11 Jan 2025
     Version: 1.0.0
     Required Modules: PowerShell Remoting
 
@@ -58,7 +58,7 @@ function Show-MainMenu {
     Write-CenteredText "[2] Apply only REGISTRY tweaks                   [b] Install Chromium browser             "
     Write-CenteredText "[3] Apply only SERVIICE tweaks                   [c] Install Windows Terminal app         "
     Write-CenteredText "[4] Apply only SCHEDULED TASK tweaks             [d] Install Office (Pro Plus 2024)       "
-    Write-CenteredText "[5] Perform System cleanup                                                                "
+    Write-CenteredText "[5] Perform System cleanup                       [e] Install Winget                       "
     Write-CenteredText "[6] Disable Windows Defender                                                              "
     Write-Host ""
 }
@@ -430,6 +430,53 @@ function Install-Office {
     Write-Host ""
 }
 
+# Install Winget
+function Install-Winget {
+    Write-TaskHeader "Install Winget"
+
+    try {
+        $downloadDir = Join-Path -Path $WorkingDir -ChildPath "winget"
+
+        Write-Host "Fetching latest release"
+        $response = Invoke-RestMethod -Uri "https://api.github.com/repos/microsoft/winget-cli/releases/latest"
+        Write-Host ""
+
+        Write-Host "Downloading assets"
+        foreach ($asset in $response.Assets) {
+            Write-Host "Name: $($asset.Name), Size: $($asset.Size)"
+
+            Invoke-FileDownload -Uri $asset.Browser_Download_Url -OutFile $(Join-Path -Path $downloadDir -ChildPath $asset.Name)
+            Write-Host ""
+        }
+
+        $dependenciesZip = Get-ChildItem -Path $downloadDir -Filter *Dependencies.zip | ForEach-Object -MemberName FullName
+        $dependenciesDir = Join-Path -Path $downloadDir -ChildPath "dependencies"
+
+        Write-Host "Extracting and installing dependencies"
+        Expand-Archive -Path $dependenciesZip -DestinationPath $dependenciesDir -Force
+
+        $dependencies = Join-Path -Path $dependenciesDir -ChildPath "x64" | Get-ChildItem | ForEach-Object -MemberName FullName
+        foreach ($dependency in $dependencies) {
+            Add-AppxPackage -Path $dependency
+        }
+
+        Write-Host "Installing winget"
+        $wingetBundle = Get-ChildItem -Path $downloadDir -Filter *8wekyb3d8bbwe.msixbundle | ForEach-Object -MemberName FullName
+        Add-AppxPackage -Path $wingetBundle
+
+        Write-Host "Configuring license"
+        $license = Get-ChildItem -Path $downloadDir -Filter *License1.xml | ForEach-Object -MemberName FullName
+        Add-AppxProvisionedPackage -Online -PackagePath $wingetBundle -LicensePath $license
+
+        Write-Host "Sucessfully installed winget ($(winget.exe -v))"
+    }
+    catch {
+        Write-UnhandledException -Description "Failed to install Winget" -Exception $_.Exception
+    }
+
+    Write-Host ""
+}
+
 # Cleanup working directory
 function Remove-WorkingDir {
     if (Test-Path -Path $WorkingDir) {
@@ -473,6 +520,7 @@ while ($choice -ne 'q') {
         "b" { Install-Chromium }
         "c" { Install-WindowsTerminal }
         "d" { Install-Office -Config $(Join-Path -Path $PSScriptRoot -ChildPath "config\office\Configuration.xml") }
+        "e" { Install-Winget }
         "q" { break menu }
         Default {
             $choice = "0"
