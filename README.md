@@ -9,6 +9,7 @@ A comprehensive set of tweaks to make Windows Better. It applies registry tweaks
 - Disable schedule tasks
 - Disable defender
 - System cleanup
+- Some UI Customizations (like option to open cmd and powershell in right click menu)
 
 ## Utilities
 - Install Chromium browser

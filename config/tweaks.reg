@@ -6,7 +6,7 @@ Windows Registry Editor Version 5.00
 ;
 ; Author: Ashuthosh Patoa
 ; Date Created:  03 Jan 2025
-; Last Modified: 05 Jan 2025
+; Last Modified: 11 Jan 2025
 ; 
 ; ============================================================================
 
@@ -429,3 +429,67 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
 "ShowFrequent"=dword:00000000
 "ShowCloudFilesInQuickAccess"=dword:00000000
+
+; Adds extended options in right click menu to open Command Prompt as admin
+[HKEY_CLASSES_ROOT\Directory\shell\01MenuCmd]
+"MUIVerb"="Command Prompt"
+"Icon"="cmd.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\MenuCmd"
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\01MenuCmd]
+"MUIVerb"="Command Prompt"
+"Icon"="cmd.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\MenuCmd"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuCmd\shell\open]
+"MUIVerb"="Command Prompt"
+"Icon"="cmd.exe"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuCmd\shell\open\command]
+@="cmd.exe /s /k pushd \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuCmd\shell\runas]
+"MUIVerb"="Command Prompt (Admin)"
+"Icon"="cmd.exe"
+"HasLUAShield"=""
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuCmd\shell\runas\command]
+@="cmd.exe /s /k pushd \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\cmd]
+"Extended"=""
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\cmd]
+"Extended"=""
+
+; Adds extended options in right click menu to open Powershell as admin
+[HKEY_CLASSES_ROOT\Directory\shell\02MenuPowerShell]
+"MUIVerb"="PowerShell"
+"Icon"="powershell.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\MenuPowerShell"
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\02MenuPowerShell]
+"MUIVerb"="PowerShell"
+"Icon"="powershell.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\MenuPowerShell"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuPowerShell\shell\open]
+"MUIVerb"="PowerShell"
+"Icon"="powershell.exe"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuPowerShell\shell\open\command]
+@="powershell.exe -noexit -command Set-Location '%V'"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuPowerShell\shell\runas]
+"MUIVerb"="PowerShell (Admin)"
+"Icon"="powershell.exe"
+"HasLUAShield"=""
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuPowerShell\shell\runas\command]
+@="powershell.exe -noexit -command Set-Location '%V'"
+
+[HKEY_CLASSES_ROOT\Directory\shell\Powershell]
+"Extended"=""
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\Powershell]
+"Extended"=""
