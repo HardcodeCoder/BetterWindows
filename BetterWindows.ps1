@@ -13,9 +13,9 @@
     Right click on the script and select "Run in powershell"
 
 .NOTES
-    Author: Ashuthosh Patoa
+    Author: HardcodeCoder
     Created: 03 Jan 2025
-    Last Modified: 11 Jan 2025
+    Last Modified: 17 Jan 2025
     Version: 1.0.0
     Required Modules: PowerShell Remoting
 

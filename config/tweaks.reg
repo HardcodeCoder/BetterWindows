@@ -4,9 +4,9 @@ Windows Registry Editor Version 5.00
 ; Registry tweaks to disable unnecessary Windows 11 settings and telemetry. 
 ; This file is intended for and tested on Windows 11 Iot Enterprise LTSC.
 ;
-; Author: Ashuthosh Patoa
+; Author: HardcodeCoder
 ; Date Created:  03 Jan 2025
-; Last Modified: 11 Jan 2025
+; Last Modified: 17 Jan 2025
 ; 
 ; ============================================================================
 
