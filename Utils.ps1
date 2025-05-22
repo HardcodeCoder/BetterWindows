@@ -13,7 +13,7 @@
 .NOTES
     Author: HardcodeCoder
     Created: 19 May 2025
-    Last Modified: 19 May 2025
+    Last Modified: 22 May 2025
     Version: 1.0.0
     Required Modules: PowerShell Remoting
 
@@ -21,12 +21,35 @@
     https://docs.microsoft.com/en-us/powershell/
 #>
 
+
+# Invoke script as administrator
+function Invoke-AsAdministrator {
+    param (
+        [string]$ScriptPath
+    )
+
+    if (([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+        return
+    }
+
+    try {
+        Start-Process powershell.exe -ArgumentList ("-NoProfile -NoExit -ExecutionPolicy Bypass -File `"{0}`"" -f $ScriptPath) -Verb RunAs -WindowStyle Maximized
+        Exit
+    }
+    catch {
+        Write-Warning "Failed to run as Administrator. Please rerun with elevated privileges."
+        Read-Host "Press any key to exit."
+        Exit
+    }
+}
+
 # Initialize powershell window for administrator look
 function Initialize-PowershellWindow {
     $Host.UI.RawUI.WindowTitle = $myInvocation.MyCommand.Definition + " - Administrator"
     $Host.UI.RawUI.BackgroundColor = "Black"
     $Host.PrivateData.ProgressBackgroundColor = "Black"
     $Host.PrivateData.ProgressForegroundColor = "White"
+
     Clear-Host
 }
 

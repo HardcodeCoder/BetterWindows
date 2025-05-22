@@ -15,7 +15,7 @@
 .NOTES
     Author: HardcodeCoder
     Created: 03 Jan 2025
-    Last Modified: 17 Jan 2025
+    Last Modified: 22 May 2025
     Version: 1.0.0
     Required Modules: PowerShell Remoting
 
@@ -24,8 +24,9 @@
 #>
 
 
-# Source Utils
-. .\Utils.ps1
+# Source helper scripts
+$UtilsScript = Join-Path -Path $PSScriptRoot -ChildPath "Utils.ps1"
+. $UtilsScript
 
 # Config file path
 $RegistryConfigFile = Join-Path -Path $PSScriptRoot -ChildPath "config\tweaks.reg"
@@ -63,7 +64,12 @@ function Show-MainMenu {
     Write-CenteredText "[4] Apply only SCHEDULED TASK tweaks             [d] Install Office (Pro Plus 2024)       "
     Write-CenteredText "[5] Perform System cleanup                       [e] Install Winget                       "
     Write-CenteredText "[6] Disable Windows Defender                                                              "
+
     Write-Host ""
+    Write-CenteredText "[q] To exit"
+    Write-Host ""
+
+    return Read-Host -Prompt "Enter your selection: "
 }
 
 # Apply all recommended tweaks
@@ -395,28 +401,17 @@ function Remove-WorkingDir {
     }
 }
 
-# Run as administrator if not in admin role
-if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    try {
-        Start-Process powershell.exe -ArgumentList ("-NoProfile -NoExit -ExecutionPolicy Bypass -File `"{0}`"" -f $PSCommandPath) -Verb RunAs -WindowStyle Maximized
-        Exit
-    }
-    catch {
-        Write-Warning "Failed to run as Administrator. Please rerun with elevated privileges."
-        Read-Host "Press any key to exit."
-        Exit
-    }
-}
 
+# Script begins here
+Invoke-AsAdministrator -ScriptPath $PSCommandPath
 Initialize-PowershellWindow
+
 $ProgressPreference = 'SilentlyContinue'
 $choice = ''
 
 :menu
 while ($choice -ne 'q') {
-    Show-MainMenu
-
-    $choice = Read-Host -Prompt "Enter your selection (default 1)"
+    $choice = Show-MainMenu
     Write-Host ""
 
     switch ($choice) {
@@ -435,7 +430,7 @@ while ($choice -ne 'q') {
         Default {
             $choice = "0"
             Write-Host "Invalid selection"
-            Read-Host -Prompt "Press any key to continue"
+            Read-Host -Prompt "Press any key to continue..."
         }
     }
 
@@ -445,7 +440,7 @@ while ($choice -ne 'q') {
 
     Write-TaskFooter
     Write-Host "All tasks completed"
-    Read-Host -Prompt "Press any key to continue."
+    Read-Host -Prompt "Press any key to continue..."
 }
 
 Remove-WorkingDir
