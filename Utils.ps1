@@ -13,13 +13,17 @@
 .NOTES
     Author: HardcodeCoder
     Created: 19 May 2025
-    Last Modified: 22 May 2025
+    Last Modified: 23 May 2025
     Version: 1.0.0
     Required Modules: PowerShell Remoting
 
 .LINK
     https://docs.microsoft.com/en-us/powershell/
 #>
+
+
+# Global temporary working directory
+$WorkingDir = Join-Path -Path $env:TEMP -ChildPath "BetterWindows"
 
 
 # Invoke script as administrator
@@ -45,7 +49,7 @@ function Invoke-AsAdministrator {
 
 # Initialize powershell window for administrator look
 function Initialize-PowershellWindow {
-    $Host.UI.RawUI.WindowTitle = $myInvocation.MyCommand.Definition + " - Administrator"
+    $Host.UI.RawUI.WindowTitle = "Better Windows - Administrator"
     $Host.UI.RawUI.BackgroundColor = "Black"
     $Host.PrivateData.ProgressBackgroundColor = "Black"
     $Host.PrivateData.ProgressForegroundColor = "White"
@@ -134,5 +138,13 @@ function Invoke-FileDownload {
     }
     catch {
         Write-UnhandledException -Description "Unable to downlad file" -E $_.Exception
+    }
+}
+
+# Cleanup working directory
+function Remove-WorkingDir {
+    if (Test-Path -Path $WorkingDir) {
+        Get-ChildItem -Path $WorkingDir -Recurse | Remove-Item -Recurse -Force
+        Remove-Item -Path $WorkingDir -Force
     }
 }

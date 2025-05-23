@@ -15,7 +15,7 @@
 .NOTES
     Author: HardcodeCoder
     Created: 03 Jan 2025
-    Last Modified: 22 May 2025
+    Last Modified: 23 May 2025
     Version: 1.0.0
     Required Modules: PowerShell Remoting
 
@@ -32,9 +32,6 @@ $UtilsScript = Join-Path -Path $PSScriptRoot -ChildPath "Utils.ps1"
 $RegistryConfigFile = Join-Path -Path $PSScriptRoot -ChildPath "config\tweaks.reg"
 $ServiceConfigFile = Join-Path -Path $PSScriptRoot -ChildPath "config\services.json"
 $TaskConfigFile = Join-Path -Path $PSScriptRoot -ChildPath "config\tasks.json"
-
-# Global temporary working directory
-$WorkingDir = Join-Path -Path $env:TEMP -ChildPath "BetterWindows"
 
 
 # Show Better Windows main menu
@@ -58,15 +55,16 @@ function Show-MainMenu {
 
     Write-CenteredText "Tweaks and optimizations                         Software and packages                    "
     Write-CenteredText "------------------------                         ---------------------                    "
-    Write-CenteredText "[1] Apply ALL tweaks (2-6)                       [a] Install Graphics Driver              "
-    Write-CenteredText "[2] Apply only REGISTRY tweaks                   [b] Install Chromium browser             "
-    Write-CenteredText "[3] Apply only SERVIICE tweaks                   [c] Install Windows Terminal app         "
+    Write-CenteredText "[1] Apply ALL tweaks (2-6)                       [a] Install Chromium browser             "
+    Write-CenteredText "[2] Apply only REGISTRY tweaks                   [b] Install Windows Terminal app         "
+    Write-CenteredText "[3] Apply only SERVIICE tweaks                   [c] Install Winget                       "
     Write-CenteredText "[4] Apply only SCHEDULED TASK tweaks             [d] Install Office (Pro Plus 2024)       "
-    Write-CenteredText "[5] Perform System cleanup                       [e] Install Winget                       "
+    Write-CenteredText "[5] Perform System cleanup                                                                "
     Write-CenteredText "[6] Disable Windows Defender                                                              "
 
     Write-Host ""
     Write-CenteredText "[q] To exit"
+
     Write-Host ""
 
     return Read-Host -Prompt "Enter your selection: "
@@ -252,25 +250,6 @@ function Disable-WindowsDefender {
     Write-Host ""
 }
 
-# Install Intel Graphics driver
-function Install-GraphicsDriver {
-    Write-TaskHeader "Download and install Intel Graphics Driver"
-
-    try {
-        $installerFile = Join-Path -Path $WorkingDir -ChildPath "win64_15.33.53.5161.exe"
-        Invoke-FileDownload -Uri "https://downloadmirror.intel.com/29969/a08/win64_15.33.53.5161.exe" -OutFile $installerFile
-
-        Write-Host "Installing..."
-        Start-Process -FilePath $installerFile -ArgumentList "-s" -Wait
-        Write-Host "Successfully installed graphics driver"
-    }
-    catch {
-        Write-UnhandledException -Description "Failed to install graphics driver" -Exception $_.Exception
-    }
-
-    Write-Host ""
-}
-
 # Install Chromium browser
 function Install-Chromium {
     Write-TaskHeader "Download and install Chromium"
@@ -393,14 +372,6 @@ function Install-Winget {
     Write-Host ""
 }
 
-# Cleanup working directory
-function Remove-WorkingDir {
-    if (Test-Path -Path $WorkingDir) {
-        Get-ChildItem -Path $WorkingDir -Recurse | Remove-Item -Recurse -Force
-        Remove-Item -Path $WorkingDir -Force
-    }
-}
-
 
 # Script begins here
 Invoke-AsAdministrator -ScriptPath $PSCommandPath
@@ -421,11 +392,10 @@ while ($choice -ne 'q') {
         "4" { Invoke-TaskTweak -Config $TaskConfigFile }
         "5" { Invoke-SystemCleaner }
         "6" { Disable-WindowsDefender }
-        "a" { Install-GraphicsDriver }
-        "b" { Install-Chromium }
-        "c" { Install-WindowsTerminal }
+        "a" { Install-Chromium }
+        "b" { Install-WindowsTerminal }
+        "c" { Install-Winget }
         "d" { Install-Office -Config $(Join-Path -Path $PSScriptRoot -ChildPath "config\office\Configuration.xml") }
-        "e" { Install-Winget }
         "q" { break menu }
         Default {
             $choice = "0"
