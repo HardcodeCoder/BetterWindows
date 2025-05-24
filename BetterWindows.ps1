@@ -110,7 +110,7 @@ function Invoke-OptimizationTweak {
         Write-Host "Disabling AutoLogger and denying system access"
         $autoLoggerDir = "$env:PROGRAMDATA\Microsoft\Diagnosis\ETLLogs\AutoLogger\"
 
-        If (Test-Path "$autoLoggerDir\AutoLogger-Diagtrack-Listener.etl\") {
+        if (Test-Path "$autoLoggerDir\AutoLogger-Diagtrack-Listener.etl\") {
             Remove-Item "$autoLoggerDir\AutoLogger-Diagtrack-Listener.etl\"
         }
 
@@ -158,6 +158,10 @@ function Invoke-ServiceTweak {
         }
 
         foreach ($serviceConfig in $serviceConfigs) {
+            if ($serviceConfig.Start -eq $serviceConfig.Default) {
+                continue
+            }
+
             Write-Host "Set service: $($serviceConfig.Name), Startup = $($serviceConfig.Start)"
 
             $service = Join-Path -Path $servicesRegistryPath -ChildPath $serviceConfig.Name
