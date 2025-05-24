@@ -15,7 +15,7 @@
 .NOTES
     Author: HardcodeCoder
     Created: 03 Jan 2025
-    Last Modified: 23 May 2025
+    Last Modified: 24 May 2025
     Version: 1.0.0
     Required Modules: PowerShell Remoting
 
@@ -39,7 +39,7 @@ function Show-MainMenu {
     Clear-Host
 
     Write-CenteredText " ____       _   _             __        __            _                   " -ForegroundColor Green
-    Write-CenteredText "| __ )  ___| |_| |_ ___ _ _   \ \      / (_)_ __   __| | _____      _____ " -ForegroundColor Green
+    Write-CenteredText "| __ )  ___| |_| |_ ___ _ _   \ \      / (_)_ __   __| | _____      __ ___" -ForegroundColor Green
     Write-CenteredText "|  _ \ / _ \ __| __/ _ \  __\  \ \ /\ / /| |  _  \/ _  |/ _ \ \ /\ / / __/" -ForegroundColor Green
     Write-CenteredText "| |_) |  __/ |_| ||  __/ |      \ V  V / | | | | | (_| | (_) \ V  V /\__ \" -ForegroundColor Green
     Write-CenteredText "|____/ \___|\__|\__\___|_|       \_/\_/  |_|_| |_|\__,_|\___/ \_/\_/ |___/" -ForegroundColor Green
@@ -55,12 +55,10 @@ function Show-MainMenu {
 
     Write-CenteredText "Tweaks and optimizations                         Software and packages                    "
     Write-CenteredText "------------------------                         ---------------------                    "
-    Write-CenteredText "[1] Apply ALL tweaks (2-6)                       [a] Install Chromium browser             "
-    Write-CenteredText "[2] Apply only REGISTRY tweaks                   [b] Install Windows Terminal app         "
-    Write-CenteredText "[3] Apply only SERVIICE tweaks                   [c] Install Winget                       "
-    Write-CenteredText "[4] Apply only SCHEDULED TASK tweaks             [d] Install Office (Pro Plus 2024)       "
-    Write-CenteredText "[5] Perform System cleanup                                                                "
-    Write-CenteredText "[6] Disable Windows Defender                                                              "
+    Write-CenteredText "[1] Apply All tweaks                             [a] Install Chromium browser             "
+    Write-CenteredText "[2] Apply optimization tweaks                    [b] Install Windows Terminal app         "
+    Write-CenteredText "[3] Disable Windows Defender                     [c] Install Winget                       "
+    Write-CenteredText "[4] Perform System cleanup                       [d] Install Office (Pro Plus 2024)       "
 
     Write-Host ""
     Write-CenteredText "[q] To exit"
@@ -72,13 +70,30 @@ function Show-MainMenu {
 
 # Apply all recommended tweaks
 function Invoke-AllTweaks {
-    param (
-        [string]$RegistryConfig,
-        [string]$ServiceConfig,
-        [string]$TaskConfig
-    )
+    try {
+        Invoke-OptimizationTweak
 
-    Write-TaskHeader "Making your Windows Better"
+        Write-TaskHeader "Apply Registry tweaks"
+        Invoke-RegistryTweak -Config $RegistryConfigFile
+
+        Write-TaskHeader "Apply Service tweaks"
+        Invoke-ServiceTweak -Config $ServiceConfigFile
+
+        Write-TaskHeader "Apply Schedule task tweaks"
+        Invoke-TaskTweak -Config $TaskConfigFile
+
+        Disable-WindowsDefender
+
+        Invoke-SystemCleaner
+    }
+    catch {
+        Write-UnhandledException -Description "Failed to apply all tweaks" -Exception $_.Exception
+    }
+}
+
+# Apply System tweaks
+function Invoke-OptimizationTweak {
+    Write-TaskHeader "Apply optimization tweaks"
 
     try {
         Write-Host "Disabling hibernation"
@@ -94,27 +109,18 @@ function Invoke-AllTweaks {
 
         Write-Host "Disabling AutoLogger and denying system access"
         $autoLoggerDir = "$env:PROGRAMDATA\Microsoft\Diagnosis\ETLLogs\AutoLogger\"
+
         If (Test-Path "$autoLoggerDir\AutoLogger-Diagtrack-Listener.etl\") {
             Remove-Item "$autoLoggerDir\AutoLogger-Diagtrack-Listener.etl\"
         }
+
         icacls $autoLoggerDir /deny "SYSTEM:(OI)(CI)F" | Out-Null
 
         Write-Host "Disable Windows Defender automatic sample submission"
         Set-MpPreference -SubmitSamplesConsent 2 -ErrorAction SilentlyContinue | Out-Null
-        Write-Host ""
-
-        Invoke-RegistryTweak -Config $RegistryConfig
-
-        Invoke-ServiceTweak -Config $ServiceConfig
-
-        Invoke-TaskTweak -Config $TaskConfig
-
-        Disable-WindowsDefender
-
-        Invoke-SystemCleaner
     }
     catch {
-        Write-UnhandledException -Description "Failed to apply all tweaks" -Exception $_.Exception
+        Write-UnhandledException -Description "Failed to apply system tweaks" -Exception $_.Exception
     }
 
     Write-Host ""
@@ -126,7 +132,7 @@ function Invoke-RegistryTweak {
         [string]$Config
     )
 
-    Write-Host "Applying registry tweaks from: $Config" -ForegroundColor Cyan
+    Write-Host "Setting registry entries from: $Config" -ForegroundColor Cyan
 
     Start-Process regedit.exe -ArgumentList "/S $Config" -Wait
     Write-Host "Success"
@@ -140,9 +146,9 @@ function Invoke-ServiceTweak {
         [string]$Config
     )
 
-    Write-Host "Applying service configurations from: $Config" -ForegroundColor Cyan
-
     try {
+        Write-Host "Setting service configurations from: $Config" -ForegroundColor Cyan
+
         $serviceConfigs = ConvertFrom-JsonFie -Path $Config
         $servicesRegistryPath = "HKLM:\SYSTEM\CurrentControlSet\Services"
 
@@ -187,9 +193,9 @@ function Invoke-TaskTweak {
         [string]$Config
     )
 
-    Write-Host "Applying schedule task configurations from: $Config" -ForegroundColor Cyan
-
     try {
+        Write-Host "Setting schedule task configurations from: $Config" -ForegroundColor Cyan
+
         $tasks = ConvertFrom-JsonFie -Path $Config
 
         if ($null -eq $tasks) {
@@ -217,9 +223,9 @@ function Invoke-TaskTweak {
 
 # Perform sytem cleanup
 function Invoke-SystemCleaner {
-    try {
-        Write-TaskHeader "Perform System Cleanup"
+    Write-TaskHeader "Perform System Cleanup"
 
+    try {
         Write-Host "Deleting temp files and caches"
         Start-Process -FilePath cleanmgr.exe -ArgumentList "/d C: /verylowdisk" -Wait
         Get-ChildItem -Path "$env:TEMP" -Recurse | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
@@ -386,12 +392,10 @@ while ($choice -ne 'q') {
     Write-Host ""
 
     switch ($choice) {
-        "1" { Invoke-AllTweaks -RegistryConfig $RegistryConfigFile -ServiceConfig $ServiceConfigFile -TaskConfig $TaskConfigFile }
-        "2" { Invoke-RegistryTweak -Config $RegistryConfigFile }
-        "3" { Invoke-ServiceTweak -Config $ServiceConfigFile }
-        "4" { Invoke-TaskTweak -Config $TaskConfigFile }
-        "5" { Invoke-SystemCleaner }
-        "6" { Disable-WindowsDefender }
+        "1" { Invoke-AllTweaks }
+        "2" { Invoke-OptimizationTweak }
+        "3" { Disable-WindowsDefender }
+        "4" { Invoke-SystemCleaner }
         "a" { Install-Chromium }
         "b" { Install-WindowsTerminal }
         "c" { Install-Winget }
