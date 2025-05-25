@@ -15,7 +15,7 @@
 .NOTES
     Author: HardcodeCoder
     Created: 03 Jan 2025
-    Last Modified: 24 May 2025
+    Last Modified: 25 May 2025
     Version: 1.0.0
     Required Modules: PowerShell Remoting
 
@@ -59,6 +59,9 @@ function Show-MainMenu {
     Write-CenteredText "[2] Apply optimization tweaks                    [b] Install Windows Terminal app         "
     Write-CenteredText "[3] Disable Windows Defender                     [c] Install Winget                       "
     Write-CenteredText "[4] Perform System cleanup                       [d] Install Office (Pro Plus 2024)       "
+    
+    Write-Host ""
+    Write-CenteredText "[w] Launch Massgrave Windows Activation script"
 
     Write-Host ""
     Write-CenteredText "[q] To exit"
@@ -382,6 +385,22 @@ function Install-Winget {
     Write-Host ""
 }
 
+# Launch windows activation script
+function Start-ActivationScript {
+    Write-TaskHeader "Massgrave Windows Activation Script"
+
+    try {
+        $scriptUrl = "https://get.activated.win"
+
+        Write-Host "Fetching script from: $scriptUrl"
+        Invoke-RestMethod -Uri $scriptUrl | Invoke-Expression
+    }
+    catch {
+        Write-UnhandledException -Description "Failed to launch windows activation script" -Exception $_.Exception
+    }
+
+    Write-Host ""
+}
 
 # Script begins here
 Invoke-AsAdministrator -ScriptPath $PSCommandPath
@@ -404,6 +423,7 @@ while ($choice -ne 'q') {
         "b" { Install-WindowsTerminal }
         "c" { Install-Winget }
         "d" { Install-Office -Config $(Join-Path -Path $PSScriptRoot -ChildPath "config\office\Configuration.xml") }
+        "w" { Start-ActivationScript }
         "q" { break menu }
         Default {
             $choice = "0"
