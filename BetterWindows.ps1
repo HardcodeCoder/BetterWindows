@@ -58,7 +58,7 @@ function Show-MainMenu {
     Write-CenteredText "[1] Apply All tweaks                             [a] Install Chromium browser             "
     Write-CenteredText "[2] Apply optimization tweaks                    [b] Install Windows Terminal app         "
     Write-CenteredText "[3] Disable Windows Defender                     [c] Install Winget                       "
-    Write-CenteredText "[4] Perform System cleanup                       [d] Install Office (Pro Plus 2024)       "
+    Write-CenteredText "[4] Perform System cleanup                       [d] Install Microsoft Office M365        "                      
     
     Write-Host ""
     Write-CenteredText "[w] Launch Massgrave Windows Activation script"
@@ -320,7 +320,7 @@ function Install-Office {
         [string]$Config
     )
 
-    Write-TaskHeader "Install Office Pro Plus 2024"
+    Write-TaskHeader "Install Office M365 Enterprise"
 
     try {
         Write-Host "Downloading setup files"

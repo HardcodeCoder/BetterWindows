@@ -1,21 +1,18 @@
-<Configuration ID="3de7b286-75f2-4bce-a876-ec0d9069b771">
-    <Add OfficeClientEdition="64" Channel="PerpetualVL2024">
-        <Product ID="ProPlus2024Volume" PIDKEY="XJ2XN-FW8RK-P4HMP-DKDBV-GCVGB">
-            <Language ID="en-us" />
-            <ExcludeApp ID="Access" />
-            <ExcludeApp ID="Lync" />
-            <ExcludeApp ID="OneDrive" />
-            <ExcludeApp ID="OneNote" />
-            <ExcludeApp ID="Outlook" />
-            <ExcludeApp ID="Publisher" />
-        </Product>
-    </Add>
-    <Property Name="SharedComputerLicensing" Value="0" />
-    <Property Name="FORCEAPPSHUTDOWN" Value="FALSE" />
-    <Property Name="DeviceBasedLicensing" Value="0" />
-    <Property Name="SCLCacheOverride" Value="0" />
-    <Property Name="AUTOACTIVATE" Value="1" />
-    <Updates Enabled="FALSE" />
-    <RemoveMSI />
-    <Display Level="Full" AcceptEULA="TRUE" />
+<Configuration ID="f2f3ff2d-1744-4f77-a796-1795514ad262">
+	<Add OfficeClientEdition="64" Channel="SemiAnnual">
+		<Product ID="O365ProPlusEEANoTeamsRetail">
+			<Language ID="en-us" />
+			<ExcludeApp ID="Access" />
+			<ExcludeApp ID="Groove" />
+			<ExcludeApp ID="Lync" />
+			<ExcludeApp ID="OneDrive" />
+			<ExcludeApp ID="OneNote" />
+			<ExcludeApp ID="Outlook" />
+			<ExcludeApp ID="Publisher" />
+			<ExcludeApp ID="Bing" />
+		</Product>
+	</Add>
+	<Updates Enabled="FALSE" />
+	<RemoveMSI />
+	<Display Level="Full" AcceptEULA="TRUE" />
 </Configuration>
