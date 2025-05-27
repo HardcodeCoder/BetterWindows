@@ -14,10 +14,13 @@ A comprehensive set of tweaks to make Windows Better. It applies registry tweaks
 ## Utilities
 - Install Chromium browser
 - Install Windows Terminal app
-- Install Office (Pro Plus 2024)
+- Install Office (Microsoft 365)
 - Install Winget
 
 ## Usage
+> [!NOTE]  
+> Ensure you can run ps1 scripts by setting `Set-ExecutionPolicy Unrestricted` in Powershell (Administrator)
+
 - Download or clone the repo
 - Run `BetterWindows.ps1` as Administrator
 - Follow on screen options
