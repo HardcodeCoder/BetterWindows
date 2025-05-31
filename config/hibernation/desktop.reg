@@ -1,0 +1,18 @@
+Windows Registry Editor Version 5.00
+
+; ============================================================================
+; Registry tweaks to configure hibernation for desktops, simply disable.
+;
+; Author: HardcodeCoder
+; Date Created:  01 June 2025
+; Last Modified: 01 June 2025
+; Version: 1.0.0
+;
+; ============================================================================
+
+; Disable hibernation
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Power]
+"HibernateEnabled"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings]
+"ShowHibernateOption"=dword:00000000

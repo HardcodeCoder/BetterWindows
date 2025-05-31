@@ -13,8 +13,8 @@
 .NOTES
     Author: HardcodeCoder
     Created: 19 May 2025
-    Last Modified: 23 May 2025
-    Version: 1.0.0
+    Last Modified: 01 June 2025
+    Version: 1.0.1
     Required Modules: PowerShell Remoting
 
 .LINK
@@ -147,4 +147,9 @@ function Remove-WorkingDir {
         Get-ChildItem -Path $WorkingDir -Recurse | Remove-Item -Recurse -Force
         Remove-Item -Path $WorkingDir -Force
     }
+}
+
+# Check if the host machine is a mobile device
+function Test-IsMobileDevice {
+    return (Get-WmiObject -Class Win32_ComputerSystem).PCSystemType -eq 2
 }

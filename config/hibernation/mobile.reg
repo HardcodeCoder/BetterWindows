@@ -1,0 +1,25 @@
+Windows Registry Editor Version 5.00
+
+; ============================================================================
+; Registry tweaks to configure hibernation for mobile devices such as Laptops.
+;
+; Author: HardcodeCoder
+; Date Created:  01 June 2025
+; Last Modified: 01 June 2025
+; Version: 1.0.0
+;
+; ============================================================================
+
+; Enable hibernation options
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Power]
+"HibernateEnabled"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings]
+"ShowHibernateOption"=dword:00000001
+
+; Set Hibernation as default for laptops instead of connected standby
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\238C9FA8-0AAD-41ED-83F4-97BE242C8F20\7bc4a2f9-d8fc-4469-b07b-33eb785aaca0]
+"Attributes"=dword:00000002
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\abfc2519-3608-4c2a-94ea-171b0ed546ab\94ac6d29-73ce-41a6-809f-6363ba21b47e]
+"Attributes"=dword:00000002

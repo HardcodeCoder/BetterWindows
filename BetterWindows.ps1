@@ -15,8 +15,8 @@
 .NOTES
     Author: HardcodeCoder
     Created: 03 Jan 2025
-    Last Modified: 25 May 2025
-    Version: 1.0.0
+    Last Modified: 01 June 2025
+    Version: 1.0.1
     Required Modules: PowerShell Remoting
 
 .LINK
@@ -27,11 +27,6 @@
 # Source helper scripts
 $UtilsScript = Join-Path -Path $PSScriptRoot -ChildPath "Utils.ps1"
 . $UtilsScript
-
-# Config file path
-$RegistryConfigFile = Join-Path -Path $PSScriptRoot -ChildPath "config\tweaks.reg"
-$ServiceConfigFile = Join-Path -Path $PSScriptRoot -ChildPath "config\services.json"
-$TaskConfigFile = Join-Path -Path $PSScriptRoot -ChildPath "config\tasks.json"
 
 
 # Show Better Windows main menu
@@ -77,13 +72,13 @@ function Invoke-AllTweaks {
         Invoke-OptimizationTweak
 
         Write-TaskHeader "Apply Registry tweaks"
-        Invoke-RegistryTweak -Config $RegistryConfigFile
+        Invoke-RegistryTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\tweaks.reg")
 
         Write-TaskHeader "Apply Service tweaks"
-        Invoke-ServiceTweak -Config $ServiceConfigFile
+        Invoke-ServiceTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\services.json")
 
         Write-TaskHeader "Apply Schedule task tweaks"
-        Invoke-TaskTweak -Config $TaskConfigFile
+        Invoke-TaskTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\tasks.json")
 
         Disable-WindowsDefender
 
@@ -99,8 +94,18 @@ function Invoke-OptimizationTweak {
     Write-TaskHeader "Apply optimization tweaks"
 
     try {
-        Write-Host "Disabling hibernation"
-        powercfg.exe /hibernate off
+        if (Test-IsMobileDevice) {
+            Write-Host "Mobile device detected. Enabling hibernation and applying recommended tweaks"
+            powercfg.exe /hibernate on
+
+            Invoke-RegistryTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\hibernation\mobile.reg")
+        }
+        else {
+            Write-Host "Desktop system detected. Disabling hibernation"
+            powercfg.exe /hibernate off
+
+            Invoke-RegistryTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\hibernation\desktop.reg")
+        }
 
         Write-Host "Setting legacy boot menu policy"
         bcdedit /set "{current}" bootmenupolicy Legacy | Out-Null
