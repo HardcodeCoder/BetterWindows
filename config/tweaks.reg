@@ -6,7 +6,7 @@ Windows Registry Editor Version 5.00
 ;
 ; Author: HardcodeCoder
 ; Date Created:  03 Jan 2025
-; Last Modified: 17 Jan 2025
+; Last Modified: 31 May 2025
 ; 
 ; ============================================================================
 
@@ -37,10 +37,39 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection]
 "AllowTelemetry"=dword:00000000
 
-; Disables Telemetry and Feedback Notifications
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
 "AllowTelemetry"=dword:00000000
 "DoNotShowFeedbackNotifications"=dword:00000001
+
+; Disable tips, tricks and suggestions
+; Disable suggetions in start
+; Disable suggetions in the timeline
+; Disable showing suggested content in the settings app
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+"ContentDeliveryAllowed"=dword:00000000
+"OemPreInstalledAppsEnabled"=dword:00000000
+"PreInstalledAppsEnabled"=dword:00000000
+"PreInstalledAppsEverEnabled"=dword:00000000
+"SilentInstalledAppsEnabled"=dword:00000000
+"SystemPaneSuggestionsEnabled"=dword:00000000
+"SubscribedContent-338387Enabled"=dword:00000000
+"SubscribedContent-338388Enabled"=dword:00000000
+"SubscribedContent-338389Enabled"=dword:00000000
+"SubscribedContent-353698Enabled"=dword:00000000
+"SubscribedContent-338393Enabled"=dword:00000000
+"SubscribedContent-353694Enabled"=dword:00000000
+"SubscribedContent-353696Enabled"=dword:00000000
+
+; Disable recommendations in start menu
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Start]
+"HideRecommendedSection"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Education]
+"IsEducationEnvironment"=dword:00000001
+
+; Disable recommendations in explorer
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"HideRecommendedSection"=dword:00000001
 
 ; Disables Windows Ink Workspace
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace]
@@ -92,15 +121,6 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Input\TIPC]
 "Enabled"=dword:00000000
 
-; Essential telemetry tweaks - disable them all
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
-"ContentDeliveryAllowed"=dword:00000000
-"OemPreInstalledAppsEnabled"=dword:00000000
-"PreInstalledAppsEnabled"=dword:00000000
-"PreInstalledAppsEverEnabled"=dword:00000000
-"SilentInstalledAppsEnabled"=dword:00000000
-"SystemPaneSuggestionsEnabled"=dword:00000000
-
 [HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\CloudContent]
 "DisableTailoredExperiencesWithDiagnosticData"=dword:00000001
 
@@ -127,40 +147,6 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Dsh] 
 "AllowNewsAndInterests"=dword:00000000
-
-; Disable suggetions in start
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
-"SubscribedContent-338388Enabled"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
-"SubscribedContent-338388Enabled"=dword:00000000
-
-; Disable tips, tricks and suggestions when using Windows
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
-"SubscribedContent-338387Enabled"=dword:00000000
-"SubscribedContent-338389Enabled"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
-"SubscribedContent-338387Enabled"=dword:00000000
-"SubscribedContent-338389Enabled"=dword:00000000
-
-; Disable suggetions in the timeline
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
-"SubscribedContent-353698Enabled"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
-"SubscribedContent-353698Enabled"=dword:00000000
-
-; Disable showing suggested content in the settings app
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
-"SubscribedContent-338393Enabled"=dword:00000000
-"SubscribedContent-353694Enabled"=dword:00000000
-"SubscribedContent-353696Enabled"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
-"SubscribedContent-338393Enabled"=dword:00000000
-"SubscribedContent-353694Enabled"=dword:00000000
-"SubscribedContent-353696Enabled"=dword:00000000
 
 ; Disable show me notification in the settings app
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SystemSettings\AccountNotifications]
@@ -217,25 +203,6 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer]
 "DisableSearchBoxSuggestions"=dword:00000001
 
-; Disable application telemetry
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
-"AllowTelemetry"=dword:00000000
-
-[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
-"AllowTelemetry"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection]
-"AllowTelemetry"=dword:00000000
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection]
-"AllowTelemetry"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
-"AITEnable"=dword:00000000
-
-[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
-"AITEnable"=dword:00000000
-
 ; Disable diagnostic data from customizing user experiences for the whole machine
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Privacy]
 "TailoredExperiencesWithDiagnosticDataEnabled"=dword:00000000
@@ -261,10 +228,13 @@ Windows Registry Editor Version 5.00
 ;                            TWEAKS AND OPTIMIZATIONS
 ; ----------------------------------------------------------------------------
 
-; Essential tweaks and optimizations
+; Hide Task view button
+; Set "This PC" as default in explorer
+; Hide Copilot button in taskbar
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
 "ShowTaskViewButton"=dword:00000000
 "LaunchTo"=dword:00000001
+"ShowCopilotButton"==dword:00000000
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People]
 "PeopleBand"=dword:00000000
@@ -273,7 +243,7 @@ Windows Registry Editor Version 5.00
 "LongPathsEnabled"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching]
-"SearchOrderConfig"=dword:00000000
+"SearchOrderConfig"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
 "SystemResponsiveness"=dword:00000000
@@ -301,16 +271,6 @@ Windows Registry Editor Version 5.00
 ; Disable storage of clipboard history
 [HKEY_LOCAL_MACHINE\Software\Microsoft\Clipboard]
 "EnableClipboardHistory"=dword:00000000
-
-[HKEY_CURRENT_USER\Software\Microsoft\Clipboard]
-"EnableClipboardHistory"=dword:00000000
-
-; Disable Storage of Clipboard history for the whole machine
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
-"AllowClipboardHistory"=dword:00000000
-
-[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\System]
-"AllowClipboardHistory"=dword:00000000
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager]
 "EnthusiastMode"=dword:00000001
@@ -419,10 +379,6 @@ Windows Registry Editor Version 5.00
 
 ; Removes gallery from Explorer
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}]
-
-; Set - This PC as default in explorer
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
-"LaunchTo"=dword:00000001
 
 ; Hide frequent folders in quick access
 ; Hisable show files from office.com
