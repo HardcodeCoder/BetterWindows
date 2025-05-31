@@ -328,21 +328,24 @@ Windows Registry Editor Version 5.00
 ;                                WINDOWS UPDATE
 ; ----------------------------------------------------------------------------
 
-; Disable Automatic Updates (Only Check for Updates Manually)
-; Notify Before Downloading and Installing Updates
-; Enable Notifications for Security Updates Only (Do Not Auto-Download)
+; Enable Automatic Updates - Notify Before Downloading and Installing Updates
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
-"NoAutoUpdate"=dword:00000001
+"NoAutoUpdate"=dword:00000000
 "AUOptions"=dword:00000002
 "AutoInstallMinorUpdates"=dword:00000000
 "NoAutoRebootWithLoggedOnUsers"=dword:00000001
 "AUPowerManagement"=dword:00000000
 
-; Defer updates and disable optional contents
+; Defer Updates and select Semi-Annual channel for updates
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]
+"BranchReadinessLevel"=dword:00000014
+"DeferFeatureUpdatesPeriodInDays"=dword:0000016d
+"DeferQualityUpdatesPeriodInDays"=dword:00000004
+
+; Disable automatic driver updates through Windows Update
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
 "AllowOptionalContent"=dword:00000000
-"DeferFeatureUpdatesPeriodInDays"=dword:00000365
-"DeferQualityUpdatesPeriodInDays"=dword:00000035
+"ExcludeWUDriversInQualityUpdate"=dword:00000001
 
 ; Disable Windows Dynamic configuration and update rollouts
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\System]
@@ -357,17 +360,14 @@ Windows Registry Editor Version 5.00
 "DontSearchWindowsUpdate"=dword:00000001
 "DriverUpdateWizardWuSearchEnabled"=dword:00000000
 
-; Disable automatic driver updates through Windows Update
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"ExcludeWUDriversInQualityUpdate"=dword:00000001
-
 ; Disable updates to the speech recognition and speech synthesis modules
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Speech]
 "AllowSpeechModelUpdate"=dword:00000000
 
-; Disables allowing downloads from other PCs (Delivery Optimization)
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization]
-"DODownloadMode"=dword:00000000
+; Use Simple mode(99) for Downloading updates (Disables the use of Delivery Optimization)
+; Refer - https://learn.microsoft.com/en-us/windows/deployment/do/waas-delivery-optimization-reference#download-mode
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config]
+"DODownloadMode"=dword:00000063
 
 
 ; ----------------------------------------------------------------------------
