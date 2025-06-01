@@ -97,18 +97,9 @@ function Invoke-OptimizationTweak {
     Write-TaskHeader "Apply optimization tweaks"
 
     try {
-        if (Test-IsMobileDevice) {
-            Write-Host "Mobile device detected. Enabling hibernation and applying recommended tweaks"
-            powercfg.exe /hibernate on
-
-            Invoke-RegistryTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\hibernation\mobile.reg")
-        }
-        else {
-            Write-Host "Desktop system detected. Disabling hibernation"
-            powercfg.exe /hibernate off
-
-            Invoke-RegistryTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\hibernation\desktop.reg")
-        }
+        Write-Host "Disabling hibernation"
+        powercfg.exe /hibernate off
+        Invoke-RegistryTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\power\hibernate.reg")
 
         Write-Host "Setting legacy boot menu policy"
         bcdedit /set "{current}" bootmenupolicy Legacy | Out-Null
