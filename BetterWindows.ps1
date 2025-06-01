@@ -16,7 +16,7 @@
     Author: HardcodeCoder
     Created: 03 Jan 2025
     Last Modified: 01 June 2025
-    Version: 1.0.1
+    Version: 1.0.2
     Required Modules: PowerShell Remoting
 
 .LINK
@@ -51,9 +51,10 @@ function Show-MainMenu {
     Write-CenteredText "Tweaks and optimizations                         Software and packages                    "
     Write-CenteredText "------------------------                         ---------------------                    "
     Write-CenteredText "[1] Apply All tweaks                             [a] Install Chromium browser             "
-    Write-CenteredText "[2] Apply optimization tweaks                    [b] Install Windows Terminal app         "
+    Write-CenteredText "[2] Apply optimization tweaks                    [b] Install Windows Terminal             "
     Write-CenteredText "[3] Disable Windows Defender                     [c] Install Winget                       "
-    Write-CenteredText "[4] Perform System cleanup                       [d] Install Microsoft Office M365        "                      
+    Write-CenteredText "[4] Perform System cleanup                       [d] Install Microsoft Office M365        "
+    Write-CenteredText "[5] Apply Better Windows Power Plan                                                       "                    
     
     Write-Host ""
     Write-CenteredText "[w] Launch Massgrave Windows Activation script"
@@ -83,6 +84,8 @@ function Invoke-AllTweaks {
         Disable-WindowsDefender
 
         Invoke-SystemCleaner
+
+        Invoke-PowerPlanTweak
     }
     catch {
         Write-UnhandledException -Description "Failed to apply all tweaks" -Exception $_.Exception
@@ -268,6 +271,59 @@ function Disable-WindowsDefender {
     Write-Host ""
 }
 
+# Apply power plan based on system type
+function Invoke-PowerPlanTweak {
+    Write-TaskHeader "Apply Better Windows Power Plans"
+
+    try {
+        $configFile = if (Test-IsMobileDevice) { "config/power/plan_mobile.json" } else { "config/power/plan_desktop.json" }
+        $configFilePath = Join-Path -Path $PSScriptRoot -ChildPath $configFile
+
+        Write-Host "Using power plan profile from: $configFilePath" -ForegroundColor Cyan
+        $powerPlanConfigs = ConvertFrom-JsonFie -Path $configFilePath
+
+        if ($null -eq $powerPlanConfigs) {
+            Write-Host "No power plan configuration found"
+            return
+        }
+
+        Write-Host "Create Better Windows Power plan"
+        $betterPlan = powercfg.exe /duplicatescheme SCHEME_BALANCED
+        $betterPlanId = $betterPlan | Select-String -Pattern "([A-F0-9-]{36})" | ForEach-Object { $_.Matches.Groups[1].Value }
+
+        if ($null -eq $betterPlanId) {
+            Write-Host "Failed to create a power plan"
+            return
+        }
+
+        powercfg.exe /changename $betterPlanId "Better Windows Plan"
+        Write-Host ""
+
+        foreach ($config in $powerPlanConfigs) {
+            Write-Host "Processing plan category: $($config.Category)"
+
+            foreach ($setting in $config.Settings) {
+                Write-Host "Applying AC setting - $($setting.Name) = $($setting.Values.AC)"
+                powercfg.exe /setacvalueindex $betterPlanId $config.Category $setting.Name $setting.Values.AC
+
+                Write-Host "Applying DC setting - $($setting.Name) = $($setting.Values.DC)"
+                powercfg.exe /setdcvalueindex $betterPlanId $config.Category $setting.Name $setting.Values.DC
+            }
+
+            Write-Host ""
+        }
+
+        Write-Host "Activating Better Windows Plan ($betterPlanId)"
+        powercfg.exe /setactive $betterPlanId
+        Write-Host "Success"
+    }
+    catch {
+        Write-UnhandledException -Description "Failed to apply power plan" -Exception $_.Exception
+    }
+
+    Write-Host ""
+}
+
 # Install Chromium browser
 function Install-Chromium {
     Write-TaskHeader "Download and install Chromium"
@@ -424,6 +480,7 @@ while ($choice -ne 'q') {
         "2" { Invoke-OptimizationTweak }
         "3" { Disable-WindowsDefender }
         "4" { Invoke-SystemCleaner }
+        "5" { Invoke-PowerPlanTweak }
         "a" { Install-Chromium }
         "b" { Install-WindowsTerminal }
         "c" { Install-Winget }

@@ -1,0 +1,65 @@
+[
+    {
+        "category": "SUB_VIDEO",
+        "settings": [
+            {
+                "name": "VIDEOIDLE",
+                "description": "Turn off display after the given timeout in seconds",
+                "values": {
+                    "ac": 180,
+                    "dc": 180
+                }
+            }
+        ]
+    },
+    {
+        "category": "SUB_SLEEP",
+        "settings": [
+            {
+                "name": "STANDBYIDLE",
+                "description": "Enter sleep after the given timeout in seconds",
+                "values": {
+                    "ac": 3600,
+                    "dc": 3600
+                }
+            },
+            {
+                "name": "UNATTENDSLEEP",
+                "description": "Timeout in seconds before system enters sleep after waking up unattended",
+                "values": {
+                    "ac": 60,
+                    "dc": 60
+                }
+            },
+            {
+                "name": "HIBERNATEIDLE",
+                "description": "Enter hibernate after the given timeout in seconds post sleep",
+                "values": {
+                    "ac": 600,
+                    "dc": 600
+                }
+            },
+            {
+                "name": "RTCWAKE",
+                "description": "Specify if timed events are allowed to wake system from sleep",
+                "values": {
+                    "ac": 2,
+                    "dc": 2
+                }
+            }
+        ]
+    },
+    {
+        "category": "SUB_PROCESSOR",
+        "settings": [
+            {
+                "name": "PROCTHROTTLEMIN",
+                "description": "Minimum performance state of the system in %",
+                "values": {
+                    "ac": 5,
+                    "dc": 5
+                }
+            }
+        ]
+    }
+]
