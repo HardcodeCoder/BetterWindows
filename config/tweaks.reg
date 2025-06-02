@@ -6,7 +6,7 @@ Windows Registry Editor Version 5.00
 ;
 ; Author: HardcodeCoder
 ; Date Created:  03 Jan 2025
-; Last Modified: 01 June 2025
+; Last Modified: 02 June 2025
 ; Version: 1.0.1
 ;
 ; ============================================================================
@@ -60,6 +60,10 @@ Windows Registry Editor Version 5.00
 "SubscribedContent-338393Enabled"=dword:00000000
 "SubscribedContent-353694Enabled"=dword:00000000
 "SubscribedContent-353696Enabled"=dword:00000000
+
+; Prevent Outlook from installing after clean install or updates
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe]
+"BlockedOobeUpdaters"="MS_Outlook"
 
 ; Disable recommendations in start menu
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Start]
@@ -235,7 +239,8 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
 "ShowTaskViewButton"=dword:00000000
 "LaunchTo"=dword:00000001
-"ShowCopilotButton"==dword:00000000
+"ShowCopilotButton"=dword:00000000
+"ShowRecommended"=dword:00000000
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People]
 "PeopleBand"=dword:00000000
@@ -368,8 +373,16 @@ Windows Registry Editor Version 5.00
 ;                                CUSTOMIZATIONS
 ; ----------------------------------------------------------------------------
 
+; Add home in file explorer
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{f874310e-b6b7-47dc-bc84-b9e6b38f5903}]
+@="CLSID_MSGraphHomeFolder"
+
 ; Removes home from explorer
-[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{f874310e-b6b7-47dc-bc84-b9e6b38f5903}]
+;[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{f874310e-b6b7-47dc-bc84-b9e6b38f5903}]
+
+; Add gallery in file explorer
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}]
+;@="{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}"
 
 ; Removes gallery from Explorer
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}]
