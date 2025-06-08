@@ -15,7 +15,7 @@
 .NOTES
     Author: HardcodeCoder
     Created: 03 Jan 2025
-    Last Modified: 01 June 2025
+    Last Modified: 08 June 2025
     Version: 1.0.2
     Required Modules: PowerShell Remoting
 
@@ -281,13 +281,18 @@ function Invoke-PowerPlanTweak {
         Write-Host "Create Better Windows Power plan"
         $betterPlan = powercfg.exe /duplicatescheme SCHEME_BALANCED
         $betterPlanId = $betterPlan | Select-String -Pattern "([A-F0-9-]{36})" | ForEach-Object { $_.Matches.Groups[1].Value }
+        $betterPlanName = "Better Windows Plan"
 
         if ($null -eq $betterPlanId) {
             Write-Host "Failed to create a power plan"
             return
         }
 
-        powercfg.exe /changename $betterPlanId "Better Windows Plan"
+        # Grab old better windows power plan guid so we can remove it later
+        $oldPowerPlan = powercfg.exe /list | Where-Object {$_ -match $betterPlanName}
+        $oldPowerPlanId = $oldPowerPlan | Select-String -Pattern "([A-F0-9-]{36})" | ForEach-Object { $_.Matches.Groups[1].Value }
+
+        powercfg.exe /changename $betterPlanId $betterPlanName
         Write-Host ""
 
         foreach ($config in $powerPlanConfigs) {
@@ -304,8 +309,14 @@ function Invoke-PowerPlanTweak {
             Write-Host ""
         }
 
-        Write-Host "Activating Better Windows Plan ($betterPlanId)"
+        Write-Host "Activating $betterPlanName ($betterPlanId)"
         powercfg.exe /setactive $betterPlanId
+
+        if ($null -ne $oldPowerPlanId) {
+            Write-Host "Removing old $betterPlanName ($oldPowerPlanId)"
+            powercfg.exe /delete $oldPowerPlanId
+        }
+
         Write-Host "Success"
     }
     catch {
