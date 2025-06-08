@@ -61,5 +61,42 @@
                 }
             }
         ]
+    },
+    {
+        "category": "SUB_NONE",
+        "settings": [
+            {
+                "name": "DEVICEIDLE",
+                "description": "Specify whether conservation or performance idle timeouts are used",
+                "values": {
+                    "ac": 0,
+                    "dc": 1
+                }
+            },
+            {
+                "name": "CONSOLELOCK",
+                "description": "Specifies whether to enter a password when the system resumes from sleep",
+                "values": {
+                    "ac": 1,
+                    "dc": 1
+                }
+            },
+            {
+                "name": "CONNECTIVITYINSTANDBY",
+                "description": "Specifies whether to allow networking during standby",
+                "values": {
+                    "ac": 2,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "DISCONNECTEDSTANDBYMODE",
+                "description": "Specify standby mode when disconnected from network",
+                "values": {
+                    "ac": 0,
+                    "dc": 0
+                }
+            }
+        ]
     }
 ]
