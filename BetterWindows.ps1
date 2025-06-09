@@ -15,7 +15,7 @@
 .NOTES
     Author: HardcodeCoder
     Created: 03 Jan 2025
-    Last Modified: 08 June 2025
+    Last Modified: 09 June 2025
     Version: 1.0.2
     Required Modules: PowerShell Remoting
 
@@ -73,13 +73,13 @@ function Invoke-AllTweaks {
         Invoke-OptimizationTweak
 
         Write-TaskHeader "Apply Registry tweaks"
-        Invoke-RegistryTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\tweaks.reg")
+        Invoke-RegistryTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\system\tweaks.reg")
 
         Write-TaskHeader "Apply Service tweaks"
-        Invoke-ServiceTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\services.json")
+        Invoke-ServiceTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\system\services.json")
 
         Write-TaskHeader "Apply Schedule task tweaks"
-        Invoke-TaskTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\tasks.json")
+        Invoke-TaskTweak -Config (Join-Path -Path $PSScriptRoot -ChildPath "config\system\tasks.json")
 
         Disable-WindowsDefender
 
