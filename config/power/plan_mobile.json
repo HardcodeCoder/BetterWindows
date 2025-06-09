@@ -63,6 +63,19 @@
         ]
     },
     {
+        "category": "SUB_ENERGYSAVER",
+        "settings": [
+            {
+                "name": "ESBRIGHTNESS",
+                "description": "Specifies the value in % to scale brightness to when Energy Saver is turned on",
+                "values": {
+                    "ac": 100,
+                    "dc": 50
+                }
+            }
+        ]
+    },
+    {
         "category": "SUB_NONE",
         "settings": [
             {
