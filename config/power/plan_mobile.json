@@ -3,11 +3,43 @@
         "category": "SUB_VIDEO",
         "settings": [
             {
+                "name": "VIDEONORMALLEVEL",
+                "description": "Sets the display brightness level in % when this power plan is activated",
+                "values": {
+                    "ac": 40,
+                    "dc": 20
+                }
+            },
+            {
+                "name": "f1fbfde2-a960-4165-9f88-50667911ce96",
+                "description": "Sets the display brightness level in % when the display gets dimmed",
+                "values": {
+                    "ac": 20,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "VIDEODIM",
+                "description": "Display is dimmed after the given timeout in seconds",
+                "values": {
+                    "ac": 90,
+                    "dc": 30
+                }
+            },
+            {
                 "name": "VIDEOIDLE",
                 "description": "Turn off display after the given timeout in seconds",
                 "values": {
                     "ac": 180,
                     "dc": 60
+                }
+            },
+            {
+                "name": "VIDEOCONLOCK",
+                "description": "Turn off display after the given timeout in seconds when system is locked",
+                "values": {
+                    "ac": 30,
+                    "dc": 10
                 }
             }
         ]
@@ -71,6 +103,19 @@
                 "values": {
                     "ac": 100,
                     "dc": 50
+                }
+            }
+        ]
+    },
+    {
+        "category": "SUB_PCIEXPRESS",
+        "settings": [
+            {
+                "name": "ASPM",
+                "description": "Specifies the power plan for PCI Express link ",
+                "values": {
+                    "ac": 2,
+                    "dc": 2
                 }
             }
         ]
