@@ -124,6 +124,14 @@
         "category": "SUB_NONE",
         "settings": [
             {
+                "name": "PERSONALITY",
+                "description": "Specify the power plan type",
+                "values": {
+                    "ac": 2,
+                    "dc": 0
+                }
+            },
+            {
                 "name": "DEVICEIDLE",
                 "description": "Specify whether conservation or performance idle timeouts are used",
                 "values": {
@@ -152,7 +160,7 @@
                 "description": "Specify standby mode when disconnected from network",
                 "values": {
                     "ac": 0,
-                    "dc": 0
+                    "dc": 1
                 }
             }
         ]
