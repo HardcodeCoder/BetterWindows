@@ -15,7 +15,7 @@
 .NOTES
     Author: HardcodeCoder
     Created: 03 Jan 2025
-    Last Modified: 09 June 2025
+    Last Modified: 13 June 2025
     Version: 1.0.2
     Required Modules: PowerShell Remoting
 
@@ -278,10 +278,11 @@ function Invoke-PowerPlanTweak {
             return
         }
 
-        Write-Host "Create Better Windows Power plan"
-        $betterPlan = powercfg.exe /duplicatescheme SCHEME_BALANCED
+        $planTemplate = if (Test-IsMobileDevice) { "SCHEME_BALANCED" } else { "SCHEME_MIN" }
+        $betterPlan = powercfg.exe /duplicatescheme $planTemplate
         $betterPlanId = $betterPlan | Select-String -Pattern "([A-F0-9-]{36})" | ForEach-Object { $_.Matches.Groups[1].Value }
         $betterPlanName = "Better Windows Plan"
+        Write-Host "Create $betterPlanName using template: $planTemplate"
 
         if ($null -eq $betterPlanId) {
             Write-Host "Failed to create a power plan"

@@ -6,7 +6,7 @@
                 "name": "VIDEOIDLE",
                 "description": "Turn off display after the given timeout in seconds",
                 "values": {
-                    "ac": 180,
+                    "ac": 300,
                     "dc": 180
                 }
             }
@@ -20,15 +20,15 @@
                 "description": "Enter sleep after the given timeout in seconds",
                 "values": {
                     "ac": 3600,
-                    "dc": 3600
+                    "dc": 1800
                 }
             },
             {
                 "name": "UNATTENDSLEEP",
                 "description": "Timeout in seconds before system enters sleep after waking up unattended",
                 "values": {
-                    "ac": 60,
-                    "dc": 60
+                    "ac": 120,
+                    "dc": 90
                 }
             },
             {
@@ -36,15 +36,15 @@
                 "description": "Enter hibernate after the given timeout in seconds post sleep",
                 "values": {
                     "ac": 600,
-                    "dc": 600
+                    "dc": 300
                 }
             },
             {
                 "name": "RTCWAKE",
                 "description": "Specify if timed events are allowed to wake system from sleep",
                 "values": {
-                    "ac": 2,
-                    "dc": 2
+                    "ac": 1,
+                    "dc": 1
                 }
             }
         ]
@@ -56,7 +56,7 @@
                 "name": "PROCTHROTTLEMIN",
                 "description": "Minimum performance state of the system in %",
                 "values": {
-                    "ac": 5,
+                    "ac": 10,
                     "dc": 5
                 }
             }
