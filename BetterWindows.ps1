@@ -15,7 +15,7 @@
 .NOTES
     Author: HardcodeCoder
     Created: 03 Jan 2025
-    Last Modified: 13 June 2025
+    Last Modified: 14 June 2025
     Version: 1.0.2
     Required Modules: PowerShell Remoting
 
@@ -300,10 +300,10 @@ function Invoke-PowerPlanTweak {
             Write-Host "Processing plan category: $($config.Category)"
 
             foreach ($setting in $config.Settings) {
-                Write-Host "Applying AC setting - $($setting.Name) = $($setting.Values.AC)"
-                powercfg.exe /setacvalueindex $betterPlanId $config.Category $setting.Name $setting.Values.AC
+                Write-Host "$($setting.Name): $($setting.Description)"
+                Write-Host "AC = $($setting.Values.AC); DC = $($setting.Values.DC)"
 
-                Write-Host "Applying DC setting - $($setting.Name) = $($setting.Values.DC)"
+                powercfg.exe /setacvalueindex $betterPlanId $config.Category $setting.Name $setting.Values.AC
                 powercfg.exe /setdcvalueindex $betterPlanId $config.Category $setting.Name $setting.Values.DC
             }
 

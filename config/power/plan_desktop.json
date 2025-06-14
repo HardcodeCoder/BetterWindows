@@ -17,7 +17,7 @@
         "settings": [
             {
                 "name": "STANDBYIDLE",
-                "description": "Enter sleep after the given timeout in seconds",
+                "description": "Timeout in seconds before system goes to sleep",
                 "values": {
                     "ac": 3600,
                     "dc": 1800
@@ -33,7 +33,7 @@
             },
             {
                 "name": "HIBERNATEIDLE",
-                "description": "Enter hibernate after the given timeout in seconds post sleep",
+                "description": "Hibernate after the given timeout in seconds post sleep",
                 "values": {
                     "ac": 600,
                     "dc": 300
@@ -41,7 +41,7 @@
             },
             {
                 "name": "RTCWAKE",
-                "description": "Specify if timed events are allowed to wake system from sleep",
+                "description": "Timed events are allowed to wake system from sleep",
                 "values": {
                     "ac": 1,
                     "dc": 1

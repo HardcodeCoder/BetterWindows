@@ -4,7 +4,7 @@
         "settings": [
             {
                 "name": "VIDEONORMALLEVEL",
-                "description": "Sets the display brightness level in % when this power plan is activated",
+                "description": "Display brightness level in % when this power plan is activated",
                 "values": {
                     "ac": 40,
                     "dc": 20
@@ -12,7 +12,7 @@
             },
             {
                 "name": "f1fbfde2-a960-4165-9f88-50667911ce96",
-                "description": "Sets the display brightness level in % when the display gets dimmed",
+                "description": "Display brightness level in % when the display gets dimmed",
                 "values": {
                     "ac": 20,
                     "dc": 0
@@ -49,7 +49,7 @@
         "settings": [
             {
                 "name": "STANDBYIDLE",
-                "description": "Enter sleep after the given timeout in seconds",
+                "description": "Timeout in seconds before system goes to sleep",
                 "values": {
                     "ac": 1800,
                     "dc": 300
@@ -65,7 +65,7 @@
             },
             {
                 "name": "HIBERNATEIDLE",
-                "description": "Enter hibernate after the given timeout in seconds post sleep",
+                "description": "Hibernate after the given timeout in seconds post sleep",
                 "values": {
                     "ac": 600,
                     "dc": 300
@@ -73,7 +73,7 @@
             },
             {
                 "name": "RTCWAKE",
-                "description": "Specify if timed events are allowed to wake system from sleep",
+                "description": "Timed events are allowed to wake system from sleep",
                 "values": {
                     "ac": 2,
                     "dc": 0
@@ -99,7 +99,7 @@
         "settings": [
             {
                 "name": "ESBRIGHTNESS",
-                "description": "Specifies the value in % to scale brightness to when Energy Saver is turned on",
+                "description": "Brightness in % to scale to when Energy Saver is turned on",
                 "values": {
                     "ac": 100,
                     "dc": 50
@@ -112,7 +112,7 @@
         "settings": [
             {
                 "name": "ASPM",
-                "description": "Specifies the power plan for PCI Express link ",
+                "description": "Power plan for PCI Express link",
                 "values": {
                     "ac": 2,
                     "dc": 2
@@ -125,7 +125,7 @@
         "settings": [
             {
                 "name": "PERSONALITY",
-                "description": "Specify the power plan type",
+                "description": "Power plan type",
                 "values": {
                     "ac": 2,
                     "dc": 0
@@ -133,7 +133,7 @@
             },
             {
                 "name": "DEVICEIDLE",
-                "description": "Specify whether conservation or performance idle timeouts are used",
+                "description": "Idle timeout strategy to use (Performance or Conservation)",
                 "values": {
                     "ac": 0,
                     "dc": 1
@@ -141,7 +141,7 @@
             },
             {
                 "name": "CONSOLELOCK",
-                "description": "Specifies whether to enter a password when the system resumes from sleep",
+                "description": "Need to enter password when the system resumes from sleep",
                 "values": {
                     "ac": 1,
                     "dc": 1
@@ -149,7 +149,7 @@
             },
             {
                 "name": "CONNECTIVITYINSTANDBY",
-                "description": "Specifies whether to allow networking during standby",
+                "description": "Allow networking during standby",
                 "values": {
                     "ac": 2,
                     "dc": 0
@@ -157,7 +157,7 @@
             },
             {
                 "name": "DISCONNECTEDSTANDBYMODE",
-                "description": "Specify standby mode when disconnected from network",
+                "description": "Standby mode when disconnected from network",
                 "values": {
                     "ac": 0,
                     "dc": 1
