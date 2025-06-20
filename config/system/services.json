@@ -76,7 +76,7 @@
     },
     {
         "name": "BITS",
-        "start": 5,
+        "start": 4,
         "default": 2
     },
     {
@@ -171,7 +171,7 @@
     },
     {
         "name": "DPS",
-        "start": 2,
+        "start": 3,
         "default": 2
     },
     {
@@ -411,7 +411,7 @@
     },
     {
         "name": "MapsBroker",
-        "start": 5,
+        "start": 4,
         "default": 2
     },
     {
@@ -751,7 +751,7 @@
     },
     {
         "name": "Spooler",
-        "start": 2,
+        "start": 3,
         "default": 2
     },
     {
@@ -771,12 +771,12 @@
     },
     {
         "name": "StorSvc",
-        "start": 3,
+        "start": 4,
         "default": 2
     },
     {
         "name": "SysMain",
-        "start": 2,
+        "start": 4,
         "default": 2
     },
     {
@@ -1396,7 +1396,7 @@
     },
     {
         "name": "wscsvc",
-        "start": 5,
+        "start": 4,
         "default": 2
     },
     {
