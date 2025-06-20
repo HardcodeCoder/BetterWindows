@@ -194,11 +194,91 @@
         "category": "SUB_PROCESSOR",
         "settings": [
             {
+                "name": "CPMINCORES",
+                "description": "Minimum % of logical processor that can remain in unparked state",
+                "values": {
+                    "ac": 20,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "CPMINCORES1",
+                "description": "Minimum % of logical processor that can remain in unparked state for Power efficiency class 1",
+                "values": {
+                    "ac": 20,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "CPINCREASETIME",
+                "description": "Minimum time in Time check intervals before processors can move from parked to unparked state",
+                "values": {
+                    "ac": 3,
+                    "dc": 5
+                }
+            },
+            {
+                "name": "CPDECREASETIME",
+                "description": "Minimum time in Time check intervals before processors can move from unparked to parked state",
+                "values": {
+                    "ac": 10,
+                    "dc": 2
+                }
+            },
+            {
+                "name": "CPCONCURRENCY",
+                "description": "Threshold in % for determining concurrency",
+                "values": {
+                    "ac": 70,
+                    "dc": 95
+                }
+            },
+            {
                 "name": "PROCTHROTTLEMIN",
                 "description": "Minimum performance state of the system in %",
                 "values": {
                     "ac": 5,
                     "dc": 1
+                }
+            },
+            {
+                "name": "PROCTHROTTLEMIN1",
+                "description": "Minimum performance state of the system in % for Power efficiency class 1",
+                "values": {
+                    "ac": 5,
+                    "dc": 1
+                }
+            },
+            {
+                "name": "PROCTHROTTLEMIN2",
+                "description": "Minimum performance state of the system in % for Power efficiency class 2",
+                "values": {
+                    "ac": 5,
+                    "dc": 1
+                }
+            },
+            {
+                "name": "PERFEPP",
+                "description": "Processor energy performance preference in %",
+                "values": {
+                    "ac": 20,
+                    "dc": 80
+                }
+            },
+            {
+                "name": "PERFEPP1",
+                "description": "Processor energy performance preference in % for Power efficiency class 1",
+                "values": {
+                    "ac": 40,
+                    "dc": 85
+                }
+            },
+            {
+                "name": "PERFEPP2",
+                "description": "Processor energy performance preference in % for Power efficiency class 2",
+                "values": {
+                    "ac": 50,
+                    "dc": 95
                 }
             }
         ]
