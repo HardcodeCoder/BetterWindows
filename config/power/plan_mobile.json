@@ -137,7 +137,7 @@
                 "description": "Timeout in seconds the device can remain idle before system starts reserving battery for standby",
                 "values": {
                     "ac": 300,
-                    "dc": 120
+                    "dc": 15
                 }
             },
             {
@@ -153,7 +153,7 @@
                 "description": "Grace period in seconds before taking adaptive action when the system has exceeded its standby budget",
                 "values": {
                     "ac": 0,
-                    "dc": 120
+                    "dc": 10
                 }
             },
             {
@@ -177,7 +177,7 @@
                 "description": "Total number of times standby budget can be refreshed before strict enforcement begins",
                 "values": {
                     "ac": 0,
-                    "dc": 2
+                    "dc": 1
                 }
             },
             {
@@ -185,7 +185,7 @@
                 "description": "Grace period in seconds before taking adaptive action when the system is below reserve battery level",
                 "values": {
                     "ac": 0,
-                    "dc": 60
+                    "dc": 5
                 }
             }
         ]
@@ -262,7 +262,7 @@
                 "description": "Processor energy performance preference in %",
                 "values": {
                     "ac": 20,
-                    "dc": 80
+                    "dc": 95
                 }
             },
             {
@@ -278,7 +278,7 @@
                 "description": "Processor energy performance preference in % for Power efficiency class 2",
                 "values": {
                     "ac": 50,
-                    "dc": 95
+                    "dc": 85
                 }
             }
         ]
