@@ -51,8 +51,8 @@
                 "name": "STANDBYIDLE",
                 "description": "Timeout in seconds before system goes to sleep",
                 "values": {
-                    "ac": 1800,
-                    "dc": 300
+                    "ac": 2700,
+                    "dc": 600
                 }
             },
             {
@@ -269,7 +269,7 @@
                 "name": "PERFEPP1",
                 "description": "Processor energy performance preference in % for Power efficiency class 1",
                 "values": {
-                    "ac": 40,
+                    "ac": 20,
                     "dc": 85
                 }
             },
@@ -277,7 +277,7 @@
                 "name": "PERFEPP2",
                 "description": "Processor energy performance preference in % for Power efficiency class 2",
                 "values": {
-                    "ac": 50,
+                    "ac": 20,
                     "dc": 85
                 }
             }
