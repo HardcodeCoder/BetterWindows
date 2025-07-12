@@ -6,8 +6,8 @@
                 "name": "VIDEONORMALLEVEL",
                 "description": "Display brightness level in % when this power plan is activated",
                 "values": {
-                    "ac": 40,
-                    "dc": 20
+                    "ac": 30,
+                    "dc": 15
                 }
             },
             {
@@ -120,8 +120,8 @@
                 "name": "NSENINPUTPRETIME",
                 "description": "Timeout in seconds after detecting user input before considering user as present",
                 "values": {
-                    "ac": 60,
-                    "dc": 15
+                    "ac": 30,
+                    "dc": 10
                 }
             },
             {
@@ -145,7 +145,7 @@
                 "description": "Battery % at which standby budget will reset",
                 "values": {
                     "ac": 80,
-                    "dc": 90
+                    "dc": 80
                 }
             },
             {
@@ -197,7 +197,7 @@
                 "name": "CPMINCORES",
                 "description": "Minimum % of logical processor that can remain in unparked state",
                 "values": {
-                    "ac": 20,
+                    "ac": 10,
                     "dc": 0
                 }
             },
@@ -205,7 +205,7 @@
                 "name": "CPMINCORES1",
                 "description": "Minimum % of logical processor that can remain in unparked state for Power efficiency class 1",
                 "values": {
-                    "ac": 20,
+                    "ac": 10,
                     "dc": 0
                 }
             },
@@ -317,14 +317,14 @@
                 "description": "Power plan type",
                 "values": {
                     "ac": 2,
-                    "dc": 0
+                    "dc": 2
                 }
             },
             {
                 "name": "DEVICEIDLE",
                 "description": "Idle timeout strategy to use (Performance or Conservation)",
                 "values": {
-                    "ac": 0,
+                    "ac": 1,
                     "dc": 1
                 }
             },
