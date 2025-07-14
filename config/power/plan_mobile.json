@@ -214,22 +214,22 @@
                 "description": "Minimum time in Time check intervals before processors can move from parked to unparked state",
                 "values": {
                     "ac": 3,
-                    "dc": 5
+                    "dc": 7
                 }
             },
             {
                 "name": "CPDECREASETIME",
                 "description": "Minimum time in Time check intervals before processors can move from unparked to parked state",
                 "values": {
-                    "ac": 10,
-                    "dc": 2
+                    "ac": 7,
+                    "dc": 3
                 }
             },
             {
                 "name": "CPCONCURRENCY",
                 "description": "Threshold in % for determining concurrency",
                 "values": {
-                    "ac": 70,
+                    "ac": 95,
                     "dc": 95
                 }
             },
@@ -261,16 +261,16 @@
                 "name": "PERFEPP",
                 "description": "Processor energy performance preference in %",
                 "values": {
-                    "ac": 20,
-                    "dc": 95
+                    "ac": 40,
+                    "dc": 90
                 }
             },
             {
                 "name": "PERFEPP1",
                 "description": "Processor energy performance preference in % for Power efficiency class 1",
                 "values": {
-                    "ac": 20,
-                    "dc": 85
+                    "ac": 30,
+                    "dc": 80
                 }
             },
             {
@@ -278,7 +278,7 @@
                 "description": "Processor energy performance preference in % for Power efficiency class 2",
                 "values": {
                     "ac": 20,
-                    "dc": 85
+                    "dc": 60
                 }
             }
         ]
