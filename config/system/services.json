@@ -771,7 +771,7 @@
     },
     {
         "name": "StorSvc",
-        "start": 4,
+        "start": 3,
         "default": 2
     },
     {
