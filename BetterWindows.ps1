@@ -15,8 +15,8 @@
 .NOTES
     Author: HardcodeCoder
     Created: 03 Jan 2025
-    Last Modified: 14 June 2025
-    Version: 1.0.2
+    Last Modified: 13 October 2025
+    Version: 1.0.3
     Required Modules: PowerShell Remoting
 
 .LINK
@@ -333,7 +333,7 @@ function Install-Chromium {
 
     try {
         $installer = Join-Path -Path $WorkingDir -ChildPath "mini_installer.sync.exe"
-        Invoke-FileDownload -Uri "https://github.com/Hibbiki/chromium-win64/releases/latest/download/mini_installer.sync.exe" -OutFile $installer
+        Invoke-FileDownload -Uri "https://github.com/Hibbiki/chromium-win64/releases/latest/download/mini_installer.exe" -OutFile $installer
 
         Write-Host "Installing for all users"
         Start-Process -FilePath $installer -ArgumentList "--system-level" -WindowStyle Hidden -Wait
