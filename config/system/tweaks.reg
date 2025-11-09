@@ -322,6 +322,10 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\Software\Microsoft\MediaPlayer\Preferences]
 "UsageTracking"=dword:00000000
 
+; Allow Windows to read Hardware Clock time as UTC for dual boot
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation]
+"RealTimeIsUniversal"=dword:00000001
+
 
 ; ----------------------------------------------------------------------------
 ;                                WINDOWS UPDATE
