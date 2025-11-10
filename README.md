@@ -26,3 +26,8 @@ A comprehensive set of tweaks to make Windows Better. It applies registry tweaks
 - Download or clone the repo
 - Run `BetterWindows.ps1` as Administrator
 - Follow on screen options
+
+> *Optional: To disable the script execution warnings:*
+```ps1
+Get-ChildItem -Path "X:\Path\To\BetterWindows\*" | Unblock-File
+```
