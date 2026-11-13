@@ -1,13 +1,13 @@
 <#
 .SYNOPSIS
-    A windows powershell script to tweak and optimize Windows 11 
+    A windows powershell script to tweak and optimize Windows 11
 
 .DESCRIPTION
     Better Windows aims to tweak certain windows settings and components to enhance privacy
     and optimize unnecessary background services and tasks.
     This script is intended to run on Windows 11 Iot Enterprise LTSC or equivalent editions
     that has minimal bloatare as it currently DOES NOT debloats like some other utilities do.
-	
+
 .EXAMPLE
     Run this script in powershell by simply executing it "BetterWiindows.ps1" or,
     Right click on the script and select "Run in powershell"
@@ -15,8 +15,8 @@
 .NOTES
     Author: HardcodeCoder
     Created: 03 Jan 2025
-    Last Modified: 13 October 2025
-    Version: 1.0.3
+    Last Modified: 13 November 2026
+    Version: 1.0.4
     Required Modules: PowerShell Remoting
 
 .LINK
@@ -39,7 +39,7 @@ function Show-MainMenu {
     Write-CenteredText "| |_) |  __/ |_| ||  __/ |      \ V  V / | | | | | (_| | (_) \ V  V /\__ \" -ForegroundColor Green
     Write-CenteredText "|____/ \___|\__|\__\___|_|       \_/\_/  |_|_| |_|\__,_|\___/ \_/\_/ |___/" -ForegroundColor Green
     Write-Host ""
-	
+
     Write-CenteredText "Warning: This script is intended for Windows 11 Iot Enterprise or equivalent edition" -ForegroundColor Yellow
     Write-Host ""
 
@@ -54,8 +54,8 @@ function Show-MainMenu {
     Write-CenteredText "[2] Apply optimization tweaks                    [b] Install Windows Terminal             "
     Write-CenteredText "[3] Disable Windows Defender                     [c] Install Winget                       "
     Write-CenteredText "[4] Perform System cleanup                       [d] Install Microsoft Office M365        "
-    Write-CenteredText "[5] Apply Better Windows Power Plan                                                       "                    
-    
+    Write-CenteredText "[5] Apply Better Windows Power Plan                                                       "
+
     Write-Host ""
     Write-CenteredText "[w] Launch Massgrave Windows Activation script"
 
@@ -267,7 +267,7 @@ function Invoke-PowerPlanTweak {
     Write-TaskHeader "Apply Better Windows Power Plans"
 
     try {
-        $configFile = if (Test-IsMobileDevice) { "config/power/plan_mobile.json" } else { "config/power/plan_desktop.json" }
+        $configFile = if (Test-IsMobileDevice) { "config/power/plan_laptop.json" } else { "config/power/plan_desktop.json" }
         $configFilePath = Join-Path -Path $PSScriptRoot -ChildPath $configFile
 
         Write-Host "Using power plan profile from: $configFilePath" -ForegroundColor Cyan
