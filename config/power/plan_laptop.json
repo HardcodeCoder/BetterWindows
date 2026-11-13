@@ -1,0 +1,664 @@
+[
+    {
+        "category": "SUB_NONE",
+        "settings": [
+            {
+                "name": "PERSONALITY",
+                "description": "Overall power plan personality (0=Power Saver, 1=High Performance, 2=Balanced)",
+                "values": {
+                    "ac": 1,
+                    "dc": 2
+                }
+            },
+            {
+                "name": "DEVICEIDLE",
+                "description": "Device idle policy for PnP devices (0=Performance, 1=Power savings)",
+                "values": {
+                    "ac": 0,
+                    "dc": 1
+                }
+            },
+            {
+                "name": "CONSOLELOCK",
+                "description": "Require password on wakeup (0=No, 1=Yes)",
+                "values": {
+                    "ac": 1,
+                    "dc": 1
+                }
+            },
+            {
+                "name": "CONNECTIVITYINSTANDBY",
+                "description": "Network connectivity in Standby (0=Disable, 1=Enable, 2=Managed by Windows)",
+                "values": {
+                    "ac": 2,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "DISCONNECTEDSTANDBYMODE",
+                "description": "Disconnected Standby power mode (0=Normal, 1=Aggressive)",
+                "values": {
+                    "ac": 0,
+                    "dc": 1
+                }
+            }
+        ]
+    },
+    {
+        "category": "c763b4ec-0e50-4b6b-9bed-2b92a6ee884e",
+        "settings": [
+            {
+                "name": "7ec1751b-60ed-4588-afb5-9819d3d77d90",
+                "description": "AMD Power Slider PMF overlay profile (0=Battery saver, 1=Better battery, 2=Better performance, 3=Best performance)",
+                "values": {
+                    "ac": 2,
+                    "dc": 1
+                }
+            }
+        ]
+    },
+    {
+        "category": "SUB_PROCESSOR",
+        "settings": [
+            {
+                "name": "PERFAUTONOMOUS",
+                "description": "Hardware autonomous frequency scaling (0=Disabled, 1=Enabled)",
+                "values": {
+                    "ac": 1,
+                    "dc": 1
+                }
+            },
+            {
+                "name": "PROCTHROTTLEMIN",
+                "description": "Minimum processor state in % for efficient cores",
+                "values": {
+                    "ac": 5,
+                    "dc": 5
+                }
+            },
+            {
+                "name": "PROCTHROTTLEMIN1",
+                "description": "Minimum processor state in % for performance cores",
+                "values": {
+                    "ac": 5,
+                    "dc": 5
+                }
+            },
+            {
+                "name": "PROCTHROTTLEMAX",
+                "description": "Maximum processor state in % for efficient cores",
+                "values": {
+                    "ac": 100,
+                    "dc": 100
+                }
+            },
+            {
+                "name": "PROCTHROTTLEMAX1",
+                "description": "Maximum processor state in % for performance cores",
+                "values": {
+                    "ac": 100,
+                    "dc": 100
+                }
+            },
+            {
+                "name": "PROCFREQMAX",
+                "description": "Maximum clock frequency in MHz for efficient cores (0=Unlimited)",
+                "values": {
+                    "ac": 0,
+                    "dc": 3000
+                }
+            },
+            {
+                "name": "PROCFREQMAX1",
+                "description": "Maximum clock frequency in MHz for performance cores (0=Unlimited)",
+                "values": {
+                    "ac": 0,
+                    "dc": 3700
+                }
+            },
+            {
+                "name": "PERFBOOSTMODE",
+                "description": "Processor performance boost mode (0=Disabled, 1=Enabled, 2=Aggressive, 3=Efficient Enabled, 4=Efficient Aggressive, 5=Aggressive At Guaranteed, 6=Efficient Aggressive At Guaranteed)",
+                "values": {
+                    "ac": 3,
+                    "dc": 3
+                }
+            },
+            {
+                "name": "PERFBOOSTPOL",
+                "description": "Processor performance boost policy in % (0=Efficiency bias, 100=Performance bias)",
+                "values": {
+                    "ac": 85,
+                    "dc": 40
+                }
+            },
+            {
+                "name": "PERFEPP",
+                "description": "Energy Performance Preference in % for efficient cores (0=Performance, 100=Energy savings)",
+                "values": {
+                    "ac": 30,
+                    "dc": 70
+                }
+            },
+            {
+                "name": "PERFEPP1",
+                "description": "Energy Performance Preference in % for performance cores (0=Performance, 100=Energy savings)",
+                "values": {
+                    "ac": 20,
+                    "dc": 80
+                }
+            },
+            {
+                "name": "PERFINCPOL",
+                "description": "Performance increase policy for efficient cores (0=Ideal, 1=Single, 2=Rocket, 3=IdealAggressive)",
+                "values": {
+                    "ac": 0,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "PERFINCPOL1",
+                "description": "Performance increase policy for performance cores (0=Ideal, 1=Single, 2=Rocket, 3=IdealAggressive)",
+                "values": {
+                    "ac": 3,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "PERFDECPOL",
+                "description": "Performance decrease policy for efficient cores (0=Ideal, 1=Single, 2=Rocket)",
+                "values": {
+                    "ac": 1,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "PERFDECPOL1",
+                "description": "Performance decrease policy for performance cores (0=Ideal, 1=Single, 2=Rocket)",
+                "values": {
+                    "ac": 0,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "PERFCHECK",
+                "description": "Processor performance time check interval in milliseconds (1 to 5000)",
+                "values": {
+                    "ac": 15,
+                    "dc": 30
+                }
+            },
+            {
+                "name": "CPMINCORES",
+                "description": "Minimum % of unparked efficient cores",
+                "values": {
+                    "ac": 50,
+                    "dc": 25
+                }
+            },
+            {
+                "name": "CPMINCORES1",
+                "description": "Minimum % of unparked performance cores",
+                "values": {
+                    "ac": 50,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "CPMAXCORES",
+                "description": "Maximum % of unparked efficient cores",
+                "values": {
+                    "ac": 100,
+                    "dc": 100
+                }
+            },
+            {
+                "name": "CPMAXCORES1",
+                "description": "Maximum % of unparked performance cores",
+                "values": {
+                    "ac": 100,
+                    "dc": 100
+                }
+            },
+            {
+                "name": "CPINCREASETIME",
+                "description": "Core parking unpark time in time check intervals (1 to 100)",
+                "values": {
+                    "ac": 1,
+                    "dc": 3
+                }
+            },
+            {
+                "name": "CPDECREASETIME",
+                "description": "Core parking park time in time check intervals (1 to 100)",
+                "values": {
+                    "ac": 20,
+                    "dc": 10
+                }
+            },
+            {
+                "name": "CPCONCURRENCY",
+                "description": "Core parking concurrency threshold in % before unparking additional cores",
+                "values": {
+                    "ac": 70,
+                    "dc": 85
+                }
+            },
+            {
+                "name": "CPOVERUTIL",
+                "description": "Core parking overutilization threshold in % (5 to 100)",
+                "values": {
+                    "ac": 60,
+                    "dc": 85
+                }
+            },
+            {
+                "name": "HETEROPOLICY",
+                "description": "Heterogeneous core parking policy (4 = Dynamic QoS Hybrid Policy 4, Policy 0, 1, 2, 3)",
+                "values": {
+                    "ac": 4,
+                    "dc": 4
+                }
+            },
+            {
+                "name": "SCHEDPOLICY",
+                "description": "Long-running thread scheduling policy (0=All, 1=Performant, 2=Prefer performant, 3=Efficient, 4=Prefer efficient, 5=Automatic)",
+                "values": {
+                    "ac": 2,
+                    "dc": 4
+                }
+            },
+            {
+                "name": "SHORTSCHEDPOLICY",
+                "description": "Short-running thread scheduling policy (0=All, 1=Performant, 2=Prefer performant, 3=Efficient, 4=Prefer efficient, 5=Automatic)",
+                "values": {
+                    "ac": 5,
+                    "dc": 4
+                }
+            },
+            {
+                "name": "HETEROCLASS0FLOORPERF",
+                "description": "Minimum performance floor in % for efficient cores when performance cores are unparked",
+                "values": {
+                    "ac": 80,
+                    "dc": 50
+                }
+            },
+            {
+                "name": "HETEROCLASS1INITIALPERF",
+                "description": "Initial performance level in % for performance cores when first unparked",
+                "values": {
+                    "ac": 60,
+                    "dc": 30
+                }
+            },
+            {
+                "name": "LATENCYHINTPERF",
+                "description": "Latency sensitivity hint target performance in % for efficient cores",
+                "values": {
+                    "ac": 60,
+                    "dc": 40
+                }
+            },
+            {
+                "name": "LATENCYHINTPERF1",
+                "description": "Latency sensitivity hint target performance in % for performance cores",
+                "values": {
+                    "ac": 75,
+                    "dc": 25
+                }
+            },
+            {
+                "name": "LATENCYHINTUNPARK",
+                "description": "Latency sensitivity hint minimum unparked efficient cores in %",
+                "values": {
+                    "ac": 50,
+                    "dc": 50
+                }
+            },
+            {
+                "name": "LATENCYHINTUNPARK1",
+                "description": "Latency sensitivity hint minimum unparked performance cores in %",
+                "values": {
+                    "ac": 50,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "SYSCOOLPOL",
+                "description": "System cooling policy (0=Passive, 1=Active)",
+                "values": {
+                    "ac": 1,
+                    "dc": 0
+                }
+            }
+        ]
+    },
+    {
+        "category": "SUB_GRAPHICS",
+        "settings": [
+            {
+                "name": "GPUPREFERENCEPOLICY",
+                "description": "GPU power preference policy (0=None, 1=Low Power)",
+                "values": {
+                    "ac": 0,
+                    "dc": 1
+                }
+            }
+        ]
+    },
+    {
+        "category": "SUB_DISK",
+        "settings": [
+            {
+                "name": "NVMEPRIMARYIDLETIMEOUT",
+                "description": "Primary NVMe idle timeout in milliseconds before entering low-power state (0 to 60000)",
+                "values": {
+                    "ac": 1000,
+                    "dc": 100
+                }
+            },
+            {
+                "name": "fc95af4d-40e7-4b6d-835a-56d131dbc80e",
+                "description": "Primary NVMe power state transition latency tolerance in milliseconds (0 to 60000; higher allows deeper sleep states)",
+                "values": {
+                    "ac": 10,
+                    "dc": 50
+                }
+            }
+        ]
+    },
+    {
+        "category": "SUB_PCIEXPRESS",
+        "settings": [
+            {
+                "name": "ASPM",
+                "description": "PCI Express Link State Power Management (0=Off, 1=Moderate power savings, 2=Maximum power savings)",
+                "values": {
+                    "ac": 0,
+                    "dc": 2
+                }
+            }
+        ]
+    },
+    {
+        "category": "19cbb8fa-5279-450e-9fac-8a3d5fedd0c1",
+        "settings": [
+            {
+                "name": "12bbebe6-58d6-4636-95bb-3217ef867c1a",
+                "description": "Wireless Adapter Power Saving Mode (0=Maximum Performance, 1=Low Power Saving, 2=Medium Power Saving, 3=Maximum Power Saving)",
+                "values": {
+                    "ac": 0,
+                    "dc": 2
+                }
+            }
+        ]
+    },
+    {
+        "category": "2a737441-1930-4402-8d77-b2bebba308a3",
+        "settings": [
+            {
+                "name": "48e6b7a6-50f5-4782-a5d4-53bb8f07e226",
+                "description": "USB selective suspend setting (0=Disabled, 1=Enabled)",
+                "values": {
+                    "ac": 0,
+                    "dc": 1
+                }
+            },
+            {
+                "name": "d4e98f31-5ffe-4ce1-be31-1b38b384c009",
+                "description": "USB 3 Link Power Management (0=Off, 1=Minimum power savings, 2=Moderate power savings, 3=Maximum power savings)",
+                "values": {
+                    "ac": 1,
+                    "dc": 3
+                }
+            }
+        ]
+    },
+    {
+        "category": "9596fb26-9850-41fd-ac3e-f7c3c00afd4b",
+        "settings": [
+            {
+                "name": "03680956-93bc-4294-bba6-4e0f09bb717f",
+                "description": "When sharing media (0=Allow computer to sleep, 1=Prevent idling to sleep, 2=Allow Away Mode)",
+                "values": {
+                    "ac": 1,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "34c7b99f-9a6d-4b3c-8dc7-b6693b78cef4",
+                "description": "When playing video (0=Optimize video quality, 1=Balanced, 2=Optimize power savings)",
+                "values": {
+                    "ac": 0,
+                    "dc": 2
+                }
+            },
+            {
+                "name": "10778347-1370-4ee0-8bbd-33bdacaade49",
+                "description": "Video playback quality bias (0=Power-saving bias, 1=Performance bias)",
+                "values": {
+                    "ac": 1,
+                    "dc": 0
+                }
+            }
+        ]
+    },
+    {
+        "category": "SUB_VIDEO",
+        "settings": [
+            {
+                "name": "VIDEONORMALLEVEL",
+                "description": "Default display brightness in %",
+                "values": {
+                    "ac": 50,
+                    "dc": 30
+                }
+            },
+            {
+                "name": "f1fbfde2-a960-4165-9f88-50667911ce96",
+                "description": "Dimmed display brightness in %",
+                "values": {
+                    "ac": 30,
+                    "dc": 15
+                }
+            },
+            {
+                "name": "VIDEODIM",
+                "description": "Dim display after input inactivity in seconds (0=Never)",
+                "values": {
+                    "ac": 180,
+                    "dc": 120
+                }
+            },
+            {
+                "name": "VIDEOIDLE",
+                "description": "Turn off display after input inactivity in seconds (0=Never)",
+                "values": {
+                    "ac": 300,
+                    "dc": 180
+                }
+            },
+            {
+                "name": "VIDEOCONLOCK",
+                "description": "Turn off display when system is locked after timeout in seconds (0=Never)",
+                "values": {
+                    "ac": 15,
+                    "dc": 5
+                }
+            },
+            {
+                "name": "ADAPTBRIGHT",
+                "description": "Enable adaptive brightness control (0=Off, 1=On)",
+                "values": {
+                    "ac": 0,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "ADVANCEDCOLORQUALITYBIAS",
+                "description": "Advanced Color quality bias (0=Power saving bias, 1=Visual quality bias)",
+                "values": {
+                    "ac": 1,
+                    "dc": 0
+                }
+            }
+        ]
+    },
+    {
+        "category": "SUB_PRESENCE",
+        "settings": [
+            {
+                "name": "HUPRVIDEODIM",
+                "description": "Dim display timeout in seconds when user is detected as inattentive (0=Disabled)",
+                "values": {
+                    "ac": 90,
+                    "dc": 45
+                }
+            },
+            {
+                "name": "HUPRVIDEOIDLEINATTENTIVE",
+                "description": "Turn off display timeout in seconds when user is detected as inattentive (0=Disabled)",
+                "values": {
+                    "ac": 120,
+                    "dc": 60
+                }
+            },
+            {
+                "name": "HUPRVIDEODIMAWAY",
+                "description": "Dim display timeout in seconds when user walks away (0=Disabled)",
+                "values": {
+                    "ac": 10,
+                    "dc": 5
+                }
+            },
+            {
+                "name": "HUPRVIDEOIDLE",
+                "description": "Turn off display timeout in seconds when user walks away (0=Disabled)",
+                "values": {
+                    "ac": 30,
+                    "dc": 10
+                }
+            },
+            {
+                "name": "NSENINPUTPRETIME",
+                "description": "Grace timeout in seconds after keyboard or mouse input before checking presence sensor",
+                "values": {
+                    "ac": 30,
+                    "dc": 15
+                }
+            },
+            {
+                "name": "USERPRESENCEPREDICTION",
+                "description": "User presence prediction mode (0=Disabled, 1=Enabled)",
+                "values": {
+                    "ac": 0,
+                    "dc": 0
+                }
+            }
+        ]
+    },
+    {
+        "category": "SUB_SLEEP",
+        "settings": [
+            {
+                "name": "STANDBYIDLE",
+                "description": "System sleep timeout after input inactivity in seconds (0=Never)",
+                "values": {
+                    "ac": 1800,
+                    "dc": 300
+                }
+            },
+            {
+                "name": "UNATTENDSLEEP",
+                "description": "System unattended sleep timeout in seconds after wake event (0=Never)",
+                "values": {
+                    "ac": 120,
+                    "dc": 30
+                }
+            },
+            {
+                "name": "HYBRIDSLEEP",
+                "description": "Allow hybrid sleep (0=Off, 1=On)",
+                "values": {
+                    "ac": 0,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "HIBERNATEIDLE",
+                "description": "Hibernate after inactivity in seconds (0=Never)",
+                "values": {
+                    "ac": 0,
+                    "dc": 0
+                }
+            },
+            {
+                "name": "RTCWAKE",
+                "description": "Allow wake timers (0=Disable, 1=Enable, 2=Important Wake Timers Only)",
+                "values": {
+                    "ac": 2,
+                    "dc": 0
+                }
+            }
+        ]
+    },
+    {
+        "category": "SUB_ENERGYSAVER",
+        "settings": [
+            {
+                "name": "ESPOLICY",
+                "description": "Energy Saver policy (0=User, 1=Aggressive)",
+                "values": {
+                    "ac": 0,
+                    "dc": 1
+                }
+            },
+            {
+                "name": "ESBATTTHRESHOLD",
+                "description": "Battery charge level in % to automatically activate Energy Saver",
+                "values": {
+                    "ac": 0,
+                    "dc": 25
+                }
+            },
+            {
+                "name": "ESBRIGHTNESS",
+                "description": "Display brightness weight in % when Energy Saver is active",
+                "values": {
+                    "ac": 100,
+                    "dc": 70
+                }
+            }
+        ]
+    },
+    {
+        "category": "SUB_BATTERY",
+        "settings": [
+            {
+                "name": "BATLEVELLOW",
+                "description": "Low battery notification threshold in %",
+                "values": {
+                    "ac": 10,
+                    "dc": 10
+                }
+            },
+            {
+                "name": "BATLEVELCRIT",
+                "description": "Critical battery action threshold in %",
+                "values": {
+                    "ac": 5,
+                    "dc": 5
+                }
+            },
+            {
+                "name": "BATACTIONCRIT",
+                "description": "Critical battery action (0=Do nothing, 1=Sleep, 2=Hibernate, 3=Shut down)",
+                "values": {
+                    "ac": 3,
+                    "dc": 3
+                }
+            }
+        ]
+    }
+]
